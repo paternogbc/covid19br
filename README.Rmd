@@ -34,7 +34,7 @@ tab_stat <- covid_br_states %>% filter(date == Sys.Date()) %>%
 # Mapa de distribuição do Corona vírus no Brasil
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-covid <- covid_br_states %>% filter(date == "2020-03-15")
+covid <- covid_br_states %>% filter(date == Sys.Date())
 covid$confir_cat <- cut(covid$confirmed_cases, breaks = c(-Inf, 0, 5, 10, 100, Inf), include.lowest = TRUE,
                         c("zero","entre 1 e 5", "entre 6 e 10", "entre 11 e 100", "maior que 100"))
 
@@ -70,7 +70,7 @@ dtime10  <- 1/mod10$coef[2]         # time to x 10
 
 # Plots------
 # Curva de crescimento no Brasil
-g1 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date)) +
+g2 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date)) +
   geom_area(fill = "tomato", alpha = 0.6) +
   geom_line(color = "black") +
   scale_x_date(date_breaks = "2 days", date_labels =  "%d %b") +
@@ -86,11 +86,11 @@ g1 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date)) +
      theme( 
     plot.title = element_text(size = 18),
   plot.subtitle = element_text(size = 16),
-  plot.caption = element_text(size = 12, hjust = 1)) ;g1
+  plot.caption = element_text(size = 12, hjust = 1)) ;g2
 
 
 # Tempo para dobrar o número de casos
-g2 <- ggplot(covid_br_all, aes(y = confirmed_cases + 1, x = date)) +
+g3 <- ggplot(covid_br_all, aes(y = confirmed_cases + 1, x = date)) +
   geom_point(color = "black", size = 4, shape = 21, fill = "tomato") +
   scale_y_continuous(trans = "log10") +
   geom_smooth(method = lm, color = "tomato") +
@@ -104,7 +104,7 @@ scale_x_date(date_breaks = "2 days", date_labels =  "%d %b") +
     theme( 
     plot.title = element_text(size = 18),
   plot.subtitle = element_text(size = 16),
-  plot.caption = element_text(size = 12, hjust = 1)) ;g2
+  plot.caption = element_text(size = 12, hjust = 1)) ;g3
 ```
 
 # Número de casos por estado
