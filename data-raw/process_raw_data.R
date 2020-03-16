@@ -68,3 +68,8 @@ scale_x_date(date_breaks = "2 days", date_labels =  "%d %b") +
        subtitle = "A cada 9 dias o número de casos aumenta 10 vezes!",
        caption = "Fonte: dados do Ministério da Saúde | atualizado: 15/03/2020") +
   theme(title = element_text(size = 22));g2
+
+# save animation
+g1a <- g1 + transition_reveal(along = date, keep_last = TRUE)
+animate(plot = g1a, height = 800, width =1200, end_pause = 10)
+anim_save(filename = "test.gif")

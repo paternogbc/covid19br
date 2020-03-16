@@ -18,6 +18,7 @@ You can install the released development version of covid19br from
 github with:
 
 ``` r
+install.packages("devtools") 
 devtools::install_github(repo = "paternogbc/covid19br")
 ```
 
