@@ -29,7 +29,13 @@ You can install the released development version of covid19br from github with:
 devtools::install_github(repo = "paternogbc/covid19br")
 ```
 
-Check the [reference page] for details about the dataset.
+## Help
+
+In `R`, documentation for anura dataset can be accessed with the
+standard `help` command (e.g., `?covid_br_all` and `?covid_br_states`).
+
+For a online description of the dataset, see [reference
+page](https://paternogbc.github.io/covid19br/reference/anura.data.html)
 
 ## Load the package data
 
