@@ -1,0 +1,16 @@
+Package: covid19br
+Type: Package
+Title: Corona Virus (covid-19) Data for Brasil
+Version: 0.1.0
+Authors@R: 
+    person(given = "Gustavo",
+           family = "Paterno",
+           role = c("aut", "cre"),
+           email = "paternogbc@gmail.com",
+           comment = c(ORCID = "0000-0001-9719-3037"))
+Description: This is a data package with updated information on the number of cases of corona virus (covid-19) for Brasil.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2

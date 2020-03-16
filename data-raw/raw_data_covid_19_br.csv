@@ -1,0 +1,298 @@
+state,state_ID,suspected_cases,confirmed_cases,not_confirmed_cases,date
+Acre,AC,3,0,0,2020/03/15
+Alagoas,AL,14,1,21,2020/03/15
+Amapá,AP,1,0,0,2020/03/15
+Amazonas,AM,0,1,7,2020/03/15
+Bahia,BA,65,2,36,2020/03/15
+Ceará,CE,22,0,59,2020/03/15
+Distrito Federal,DF,81,8,91,2020/03/15
+Espirito Santo,ES,51,1,21,2020/03/15
+Goiás,GO,4,3,49,2020/03/15
+Maranhão,MA,6,0,2,2020/03/15
+Mato Grosso,MT,8,0,7,2020/03/15
+Mato Grosso do Sul,MS,15,0,16,2020/03/15
+Minas Gerais,MG,106,2,85,2020/03/15
+Pará,PA,1,0,23,2020/03/15
+Parába,PB,27,0,11,2020/03/15
+Paraná,PR,80,6,50,2020/03/15
+Pernambuco,PE,18,2,23,2020/03/15
+Piauí,PI,1,0,2,2020/03/15
+Rio de Janeiro,RJ,95,24,147,2020/03/15
+Rio Grande do Norte,RN,14,1,15,2020/03/15
+Rio Grande do Sul,RS,66,6,217,2020/03/15
+Rondônia,RO,2,0,1,2020/03/15
+Roraima,RR,2,0,0,2020/03/15
+São Paulo,SP,1125,136,551,2020/03/15
+Santa Catarina,SC,102,6,41,2020/03/15
+Sergipe,SE,1,1,11,2020/03/15
+Tocantins,TO,3,0,0,2020/03/15
+Acre,AC,3,0,0,2020/03/14
+Alagoas,AL,6,1,7,2020/03/14
+Amapá,AP,1,0,0,2020/03/14
+Amazonas,AM,0,0,7,2020/03/14
+Bahia,BA,65,2,36,2020/03/14
+Ceará,CE,22,0,59,2020/03/14
+Distrito Federal,DF,107,6,65,2020/03/14
+Espirito Santo,ES,51,1,21,2020/03/14
+Goiás,GO,4,3,49,2020/03/14
+Maranhão,MA,6,0,2,2020/03/14
+Mato Grosso,MT,6,0,7,2020/03/14
+Mato Grosso do Sul,MS,15,0,16,2020/03/14
+Minas Gerais,MG,106,2,85,2020/03/14
+Pará,PA,1,0,20,2020/03/14
+Parába,PB,11,0,11,2020/03/14
+Paraná,PR,60,6,50,2020/03/14
+Pernambuco,PE,18,2,23,2020/03/14
+Piauí,PI,1,0,2,2020/03/14
+Rio de Janeiro,RJ,76,22,147,2020/03/14
+Rio Grande do Norte,RN,12,1,15,2020/03/14
+Rio Grande do Sul,RS,80,6,203,2020/03/14
+Rondônia,RO,2,0,1,2020/03/14
+Roraima,RR,0,0,0,2020/03/14
+São Paulo,SP,752,65,545,2020/03/14
+Santa Catarina,SC,85,4,39,2020/03/14
+Sergipe,SE,4,0,3,2020/03/14
+Tocantins,TO,2,0,0,2020/03/14
+Acre,AC,3,0,0,2020/03/13
+Alagoas,AL,6,1,7,2020/03/13
+Amapá,AP,0,0,0,2020/03/13
+Amazonas,AM,1,0,7,2020/03/13
+Bahia,BA,65,2,36,2020/03/13
+Ceará,CE,22,0,59,2020/03/13
+Distrito Federal,DF,75,2,53,2020/03/13
+Espirito Santo,ES,51,1,21,2020/03/13
+Goiás,GO,6,3,46,2020/03/13
+Maranhão,MA,6,0,2,2020/03/13
+Mato Grosso,MT,6,0,7,2020/03/13
+Mato Grosso do Sul,MS,15,0,16,2020/03/13
+Minas Gerais,MG,116,2,73,2020/03/13
+Pará,PA,1,0,20,2020/03/13
+Parába,PB,16,0,6,2020/03/13
+Paraná,PR,72,6,34,2020/03/13
+Pernambuco,PE,18,2,23,2020/03/13
+Piauí,PI,1,0,2,2020/03/13
+Rio de Janeiro,RJ,76,16,147,2020/03/13
+Rio Grande do Norte,RN,12,1,15,2020/03/13
+Rio Grande do Sul,RS,81,4,203,2020/03/13
+Rondônia,RO,2,0,1,2020/03/13
+Roraima,RR,0,0,0,2020/03/13
+São Paulo,SP,753,56,529,2020/03/13
+Santa Catarina,SC,77,2,34,2020/03/13
+Sergipe,SE,2,0,3,2020/03/13
+Tocantins,TO,2,0,0,2020/03/13
+Acre,AC,3,0,0,2020/03/12
+Alagoas,AL,6,1,7,2020/03/12
+Amapá,AP,0,0,0,2020/03/12
+Amazonas,AM,1,0,7,2020/03/12
+Bahia,BA,65,2,36,2020/03/12
+Ceará,CE,22,0,42,2020/03/12
+Distrito Federal,DF,82,2,44,2020/03/12
+Espirito Santo,ES,51,1,21,2020/03/12
+Goiás,GO,16,0,33,2020/03/12
+Maranhão,MA,6,0,2,2020/03/12
+Mato Grosso,MT,6,0,7,2020/03/12
+Mato Grosso do Sul,MS,9,0,15,2020/03/12
+Minas Gerais,MG,117,1,22,2020/03/12
+Pará,PA,5,0,13,2020/03/12
+Parába,PB,10,0,6,2020/03/12
+Paraná,PR,54,6,29,2020/03/12
+Pernambuco,PE,18,2,23,2020/03/12
+Piauí,PI,1,0,2,2020/03/12
+Rio de Janeiro,RJ,76,16,146,2020/03/12
+Rio Grande do Norte,RN,12,0,15,2020/03/12
+Rio Grande do Sul,RS,82,4,183,2020/03/12
+Rondônia,RO,2,0,1,2020/03/12
+Roraima,RR,0,0,0,2020/03/12
+São Paulo,SP,714,41,465,2020/03/12
+Santa Catarina,SC,67,0,34,2020/03/12
+Sergipe,SE,2,0,3,2020/03/12
+Tocantins,TO,0,0,0,2020/03/12
+Acre,AC,3,0,0,2020/03/11
+Alagoas,AL,4,1,7,2020/03/11
+Amapá,AP,0,0,0,2020/03/11
+Amazonas,AM,1,0,7,2020/03/11
+Bahia,BA,65,2,36,2020/03/11
+Ceará,CE,22,0,42,2020/03/11
+Distrito Federal,DF,74,2,28,2020/03/11
+Espirito Santo,ES,31,1,13,2020/03/11
+Goiás,GO,17,0,28,2020/03/11
+Maranhão,MA,6,0,2,2020/03/11
+Mato Grosso,MT,1,0,7,2020/03/11
+Mato Grosso do Sul,MS,6,0,11,2020/03/11
+Minas Gerais,MG,117,1,22,2020/03/11
+Pará,PA,5,0,13,2020/03/11
+Parába,PB,7,0,6,2020/03/11
+Paraná,PR,49,0,27,2020/03/11
+Pernambuco,PE,17,0,22,2020/03/11
+Piauí,PI,1,0,2,2020/03/11
+Rio de Janeiro,RJ,87,13,133,2020/03/11
+Rio Grande do Norte,RN,13,0,14,2020/03/11
+Rio Grande do Sul,RS,67,2,159,2020/03/11
+Rondônia,RO,2,0,1,2020/03/11
+Roraima,RR,0,0,0,2020/03/11
+São Paulo,SP,263,30,320,2020/03/11
+Santa Catarina,SC,47,0,32,2020/03/11
+Sergipe,SE,2,0,3,2020/03/11
+Tocantins,TO,0,0,0,2020/03/11
+Acre,AC,3,0,0,2020/03/10
+Alagoas,AL,6,1,1,2020/03/10
+Amapá,AP,0,0,0,2020/03/10
+Amazonas,AM,3,0,4,2020/03/10
+Bahia,BA,46,2,35,2020/03/10
+Ceará,CE,22,0,42,2020/03/10
+Distrito Federal,DF,59,1,24,2020/03/10
+Espirito Santo,ES,1,1,12,2020/03/10
+Goiás,GO,14,0,14,2020/03/10
+Maranhão,MA,2,0,2,2020/03/10
+Mato Grosso,MT,1,0,7,2020/03/10
+Mato Grosso do Sul,MS,6,0,1,2020/03/10
+Minas Gerais,MG,122,1,18,2020/03/10
+Pará,PA,5,0,12,2020/03/10
+Parába,PB,5,0,6,2020/03/10
+Paraná,PR,33,0,20,2020/03/10
+Pernambuco,PE,12,0,22,2020/03/10
+Piauí,PI,1,0,2,2020/03/10
+Rio de Janeiro,RJ,119,8,85,2020/03/10
+Rio Grande do Norte,RN,15,0,13,2020/03/10
+Rio Grande do Sul,RS,70,1,129,2020/03/10
+Rondônia,RO,2,0,1,2020/03/10
+Roraima,RR,0,0,0,2020/03/10
+São Paulo,SP,302,19,289,2020/03/10
+Santa Catarina,SC,42,0,28,2020/03/10
+Sergipe,SE,2,0,3,2020/03/10
+Tocantins,TO,0,0,0,2020/03/10
+Acre,AC,,0,,2020/02/26
+Alagoas,AL,,0,,2020/02/26
+Amapá,AP,,0,,2020/02/26
+Amazonas,AM,,0,,2020/02/26
+Bahia,BA,,0,,2020/02/26
+Ceará,CE,,0,,2020/02/26
+Distrito Federal,DF,,0,,2020/02/26
+Espirito Santo,ES,,0,,2020/02/26
+Goiás,GO,,0,,2020/02/26
+Maranhão,MA,,0,,2020/02/26
+Mato Grosso,MT,,0,,2020/02/26
+Mato Grosso do Sul,MS,,0,,2020/02/26
+Minas Gerais,MG,,0,,2020/02/26
+Pará,PA,,0,,2020/02/26
+Parába,PB,,0,,2020/02/26
+Paraná,PR,,0,,2020/02/26
+Pernambuco,PE,,0,,2020/02/26
+Piauí,PI,,0,,2020/02/26
+Rio de Janeiro,RJ,,0,,2020/02/26
+Rio Grande do Norte,RN,,0,,2020/02/26
+Rio Grande do Sul,RS,,0,,2020/02/26
+Rondônia,RO,,0,,2020/02/26
+Roraima,RR,,0,,2020/02/26
+São Paulo,SP,,1,,2020/02/26
+Santa Catarina,SC,,0,,2020/02/26
+Sergipe,SE,,0,,2020/02/26
+Tocantins,TO,,0,,2020/02/26
+Acre,AC,,0,,2020/03/4
+Alagoas,AL,,0,,2020/03/4
+Amapá,AP,,0,,2020/03/4
+Amazonas,AM,,0,,2020/03/4
+Bahia,BA,,0,,2020/03/4
+Ceará,CE,,0,,2020/03/4
+Distrito Federal,DF,,0,,2020/03/4
+Espirito Santo,ES,,0,,2020/03/4
+Goiás,GO,,0,,2020/03/4
+Maranhão,MA,,0,,2020/03/4
+Mato Grosso,MT,,0,,2020/03/4
+Mato Grosso do Sul,MS,,0,,2020/03/4
+Minas Gerais,MG,,0,,2020/03/4
+Pará,PA,,0,,2020/03/4
+Parába,PB,,0,,2020/03/4
+Paraná,PR,,0,,2020/03/4
+Pernambuco,PE,,0,,2020/03/4
+Piauí,PI,,0,,2020/03/4
+Rio de Janeiro,RJ,,0,,2020/03/4
+Rio Grande do Norte,RN,,0,,2020/03/4
+Rio Grande do Sul,RS,,0,,2020/03/4
+Rondônia,RO,,0,,2020/03/4
+Roraima,RR,,0,,2020/03/4
+São Paulo,SP,,3,,2020/03/4
+Santa Catarina,SC,,0,,2020/03/4
+Sergipe,SE,,0,,2020/03/4
+Tocantins,TO,,0,,2020/03/4
+Acre,AC,,0,,2020/03/5
+Alagoas,AL,,0,,2020/03/5
+Amapá,AP,,0,,2020/03/5
+Amazonas,AM,,0,,2020/03/5
+Bahia,BA,,0,,2020/03/5
+Ceará,CE,,0,,2020/03/5
+Distrito Federal,DF,,0,,2020/03/5
+Espirito Santo,ES,,1,,2020/03/5
+Goiás,GO,,0,,2020/03/5
+Maranhão,MA,,0,,2020/03/5
+Mato Grosso,MT,,0,,2020/03/5
+Mato Grosso do Sul,MS,,0,,2020/03/5
+Minas Gerais,MG,,0,,2020/03/5
+Pará,PA,,0,,2020/03/5
+Parába,PB,,0,,2020/03/5
+Paraná,PR,,0,,2020/03/5
+Pernambuco,PE,,0,,2020/03/5
+Piauí,PI,,0,,2020/03/5
+Rio de Janeiro,RJ,,1,,2020/03/5
+Rio Grande do Norte,RN,,0,,2020/03/5
+Rio Grande do Sul,RS,,0,,2020/03/5
+Rondônia,RO,,0,,2020/03/5
+Roraima,RR,,0,,2020/03/5
+São Paulo,SP,,6,,2020/03/5
+Santa Catarina,SC,,0,,2020/03/5
+Sergipe,SE,,0,,2020/03/5
+Tocantins,TO,,0,,2020/03/5
+Acre,AC,,0,,2020/03/5
+Alagoas,AL,,0,,2020/03/5
+Amapá,AP,,0,,2020/03/5
+Amazonas,AM,,0,,2020/03/5
+Bahia,BA,,0,,2020/03/5
+Ceará,CE,,0,,2020/03/5
+Distrito Federal,DF,,0,,2020/03/5
+Espirito Santo,ES,,0,,2020/03/5
+Goiás,GO,,0,,2020/03/5
+Maranhão,MA,,0,,2020/03/5
+Mato Grosso,MT,,0,,2020/03/5
+Mato Grosso do Sul,MS,,0,,2020/03/5
+Minas Gerais,MG,,0,,2020/03/5
+Pará,PA,,0,,2020/03/5
+Parába,PB,,0,,2020/03/5
+Paraná,PR,,0,,2020/03/5
+Pernambuco,PE,,0,,2020/03/5
+Piauí,PI,,0,,2020/03/5
+Rio de Janeiro,RJ,,0,,2020/03/5
+Rio Grande do Norte,RN,,0,,2020/03/5
+Rio Grande do Sul,RS,,0,,2020/03/5
+Rondônia,RO,,0,,2020/03/5
+Roraima,RR,,0,,2020/03/5
+São Paulo,SP,,6,,2020/03/5
+Santa Catarina,SC,,0,,2020/03/5
+Sergipe,SE,,0,,2020/03/5
+Tocantins,TO,,0,,2020/03/5
+Acre,AC,,0,,2020/02/25
+Alagoas,AL,,0,,2020/02/25
+Amapá,AP,,0,,2020/02/25
+Amazonas,AM,,0,,2020/02/25
+Bahia,BA,,0,,2020/02/25
+Ceará,CE,,0,,2020/02/25
+Distrito Federal,DF,,0,,2020/02/25
+Espirito Santo,ES,,0,,2020/02/25
+Goiás,GO,,0,,2020/02/25
+Maranhão,MA,,0,,2020/02/25
+Mato Grosso,MT,,0,,2020/02/25
+Mato Grosso do Sul,MS,,0,,2020/02/25
+Minas Gerais,MG,,0,,2020/02/25
+Pará,PA,,0,,2020/02/25
+Parába,PB,,0,,2020/02/25
+Paraná,PR,,0,,2020/02/25
+Pernambuco,PE,,0,,2020/02/25
+Piauí,PI,,0,,2020/02/25
+Rio de Janeiro,RJ,,0,,2020/02/25
+Rio Grande do Norte,RN,,0,,2020/02/25
+Rio Grande do Sul,RS,,0,,2020/02/25
+Rondônia,RO,,0,,2020/02/25
+Roraima,RR,,0,,2020/02/25
+São Paulo,SP,,0,,2020/02/25
+Santa Catarina,SC,,0,,2020/02/25
+Sergipe,SE,,0,,2020/02/25
+Tocantins,TO,,0,,2020/02/25
