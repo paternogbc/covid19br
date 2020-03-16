@@ -107,8 +107,6 @@ scale_x_date(date_breaks = "2 days", date_labels =  "%d %b") +
   plot.caption = element_text(size = 12, hjust = 1)) ;g2
 ```
 
-
-
 # Número de casos por estado
 
 ```{r echo=FALSE}
