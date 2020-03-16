@@ -23,7 +23,7 @@ devtools::install_github(repo = "paternogbc/covid19br")
 
 ## Help
 
-In `R`, documentation for anura dataset can be accessed with the
+In `R`, documentation for `covid19br` dataset can be accessed with the
 standard `help` command (e.g., `?covid_br_all` and `?covid_br_states`).
 
 For a online description of the dataset, see [reference
