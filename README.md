@@ -23,7 +23,7 @@ devtools::install_github(repo = "paternogbc/covid19br")
 
 ## Help
 
-In `R`, documentation for anura dataset can be accessed with the
+In `R`, documentation for `covid19br` dataset can be accessed with the
 standard `help` command (e.g., `?covid_br_all` and `?covid_br_states`).
 
 For a online description of the dataset, see [reference
@@ -52,8 +52,7 @@ head(covid_br_all)
 #> 6                 935
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+What is the trend in the number of corona virus cases for Brasil?
 
 ``` r
 library(ggplot2)
