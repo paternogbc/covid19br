@@ -58,9 +58,10 @@ g1 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date)) +
        title = "Coronavirus no Brasil",
        subtitle = "O número de casos cresce exponencialmente",
        caption = "Fonte: dados do Ministério da Saúde | atualizado: 15/03/2020") +
-   theme( plot.title = element_text(size = 16),
-  plot.subtitle = element_text(size = 14),
-  plot.caption = element_text(size = 10, hjust = 1));g1
+     theme( 
+    plot.title = element_text(size = 18),
+  plot.subtitle = element_text(size = 16),
+  plot.caption = element_text(size = 12, hjust = 1)) ;g1
 
 
 # Tempo para dobrar o número de casos
@@ -75,9 +76,10 @@ scale_x_date(date_breaks = "2 days", date_labels =  "%d %b") +
        title = "Coronavirus no Brasil",
        subtitle = paste("A cada ", round(dtime10, 1), "dias o número de casos aumenta 10 vezes)"),
        caption = "Fonte: dados do Ministério da Saúde | atualizado: 15/03/2020") +
-   theme( plot.title = element_text(size = 14),
-  plot.subtitle = element_text(size = 14),
-  plot.caption = element_text(size = 10, hjust = 1));g2
+    theme( 
+    plot.title = element_text(size = 18),
+  plot.subtitle = element_text(size = 16),
+  plot.caption = element_text(size = 12, hjust = 1)) ;g2
 ```
 
 # Mapa de distribuição do Corona vírus no Brasil
@@ -98,9 +100,10 @@ g1 <- ggplot() +
   labs(title = "Corona vírus no Brasil",
        subtitle = paste(n_total, "casos confirmados no Brasil"),
        caption = paste("Fonte: dados do Ministério da Saúde | atualizado", Sys.Date())) +
-  theme( plot.title = element_text(size = 16),
-  plot.subtitle = element_text(size = 14),
-  plot.caption = element_text(size = 10, hjust = 1)) 
+  theme( 
+    plot.title = element_text(size = 18),
+  plot.subtitle = element_text(size = 16),
+  plot.caption = element_text(size = 12, hjust = 1)) 
 g1
 ```
 
