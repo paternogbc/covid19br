@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.org/paternogbc/covid19br.svg?branch=master)](https://travis-ci.org/paternogbc/covid19br)
 <!-- badges: end -->
 
 The goal of covid19br is to provided updated information on the number
@@ -19,9 +21,9 @@ github with:
 devtools::install_github(repo = "paternogbc/covid19br")
 ```
 
-## Example
+Check the \[reference page\] for details about the dataset.
 
-This is a basic example which shows you how to solve a common problem:
+## Load the package data
 
 ``` r
 library(covid19br)
