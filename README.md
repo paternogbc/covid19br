@@ -3,13 +3,13 @@
 
 # Dados atualizados: 2020-03-16
 
-# Crescimento do número de casos
-
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" /><img src="man/figures/README-unnamed-chunk-2-2.png" width="100%" />
-
 # Mapa de distribuição do Corona vírus no Brasil
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+
+# Crescimento do número de casos
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" /><img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
 
 # Número de casos por estado
 
