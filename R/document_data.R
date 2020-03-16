@@ -56,3 +56,14 @@ NULL
 #' \url{https://saude.gov.br/}
 #'
 "covid_br_states"
+
+#' Brazilian map with states
+#'
+#' @format Simple feature collection with 27 features and 5 fieldS
+
+#' @source
+#' generated with
+#' library(geobr)
+#' states <- read_state(year=2018)
+#'
+"states"

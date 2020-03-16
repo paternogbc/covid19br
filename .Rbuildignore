@@ -7,3 +7,5 @@
 ^docs$
 ^pkgdown$
 ^\.travis\.yml$
+^vignettes/updated_map\.Rmd$
+^out
