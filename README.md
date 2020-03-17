@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Dados atualizados: 2020-03-16
+# Dados atualizados: 2020-03-17
 
-# Mapa de distribuição do Corona vírus no Brasil
+# Mapa de distribuição
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
@@ -12,6 +12,14 @@
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" /><img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
 
 # Número de casos por estado
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+# Dados brutos
+
+``` r
+kable(tab_stat)
+```
 
 | Estado              | Casos suspeitos | Casos confirmados | Casos descartados |
 | :------------------ | --------------: | ----------------: | ----------------: |
