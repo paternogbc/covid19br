@@ -9,3 +9,5 @@
 ^\.travis\.yml$
 ^vignettes/updated_map\.Rmd$
 ^out
+^vignettes/current_trends\.Rmd$
+^vignettes/tendencia_atual\.Rmd$
