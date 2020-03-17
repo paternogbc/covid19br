@@ -1,0 +1,9 @@
+authors:
+  Gustavo Paterno:
+    href: https://github.com/paternogbc
+
+template:
+  params:
+    bootswatch: flatly
+
+

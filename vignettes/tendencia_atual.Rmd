@@ -1,0 +1,130 @@
+---
+title: "Evolução do número de casos confirmados de covid-19 no Brasil"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, message=FALSE, warning=FALSE, echo=FALSE}
+library(covid19br)
+library(tidyverse)
+library(covid19br)
+library(geobr)
+library(cowplot)
+library(knitr)
+
+# Data for comparisons:
+used_date <- "2020-03-16"
+n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
+
+tab_stat <- covid_br_states %>% filter(date == used_date) %>% 
+  dplyr::select(Estado = state, "Casos suspeitos" = suspected_cases, 
+         "Casos confirmados" = confirmed_cases,
+         "Casos descartados" = not_confirmed_cases) %>% 
+  arrange(Estado) %>% as.data.frame()
+```
+
+As análises abaixo utilizaram dados atualizados na data:`r used_date`
+
+# Distribuição de casos de corona virus (covid-19) no Brasil
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+covid <- covid_br_states %>% filter(date == used_date)
+covid$confir_cat <- cut(covid$confirmed_cases, breaks = c(-Inf, 0, 5, 10, 100, Inf), include.lowest = TRUE,
+                        c("zero","entre 1 e 5", "entre 6 e 10", "entre 11 e 100", "more than 100"))
+
+states2 <-left_join(states, covid, by = c("abbrev_state" = "state_ID"))
+
+colors <- c("gray", '#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026')
+
+g1 <- ggplot() +
+  geom_sf(data = states2, aes(fill = confir_cat), color= "black", size=.15) +
+  scale_fill_manual(values = colors, name = "") +
+  theme_void(base_size = 16) +
+  labs(title = "covid-19",
+       subtitle = paste(n_total, "casos confirmados no Brasil"),
+       caption = paste("Source: Ministério da Saúde | updated", used_date)) +
+  theme( 
+    plot.title = element_text(size = 18),
+  plot.subtitle = element_text(size = 16),
+  plot.caption = element_text(size = 12, hjust = 1)) 
+g1
+
+```
+
+# Casos confirmados de covid-19 no Brasil
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, fig.height=8, fig.width=10}
+
+library(covid19br)
+# calculate doubling time:
+
+mod10    <- lm(log10(confirmed_cases + 1) ~ date, covid_br_all)
+modlog   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all)
+dtime    <- log(2)/modlog$coef[2]   # time to double
+dtime10  <- 1/mod10$coef[2]         # time to x 10
+
+# Plots------
+# Curva de crescimento no Brasil
+g2 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date, label = confirmed_cases)) +
+  geom_area(fill = "tomato", alpha = 0.2) +
+  geom_line(color = "tomato", size = 3) +
+  geom_label() +
+  scale_x_date(date_breaks = "3 days", date_labels =  "%d %b") +
+  geom_segment(aes(x = as.Date("2020-02-26"), y = 150, xend = as.Date ("2020-02-26"), yend = 5),
+               arrow = arrow(type =  "closed", length = unit(0.3, "cm"))) +
+  annotate(geom='text', x = as.Date("2020-02-26"), y = 160,
+           label = "Primeiro caso registrado (26 of Feb - 2020)", hjust =  0, size = 7) +
+  theme_cowplot(font_size = 20) +
+  labs(y = "Confirmed covid-19 cases",
+       x = "Date",
+       title = "covid-19",
+       subtitle = ("O número de casos cresce exponencialmente"),
+       caption = paste("Source: Ministério da Saúde | updated", used_date)) +
+     theme( 
+    plot.title = element_text(size = 22),
+  plot.subtitle = element_text(size = 18),
+  plot.caption = element_text(size = 12, hjust = 1)) ;g2
+
+
+  # Tempo para dobrar o número de casos
+g3 <- ggplot(covid_br_all, aes(y = confirmed_cases + 1, x = date)) +
+  geom_point(color = "black", size = 5, shape = 21, fill = "tomato", alpha = .75) +
+  scale_y_continuous(trans = "log10") +
+  geom_smooth(method = lm, color = "tomato") +
+scale_x_date(date_breaks = "3 days", date_labels =  "%d %b") +
+  theme_cowplot(font_size = 20) +
+  labs(y = "Casos confirmados de covid-19 [log10]",
+       x = "Date",
+       title = "covid-19",
+       subtitle = paste("A cada ", round(dtime10, 1), "dias o número de casos aumenta 10 vezes!"),
+       caption = paste("Source: Ministério da Saúde | updated", used_date)) +
+    theme( 
+    plot.title = element_text(size = 22),
+  plot.subtitle = element_text(size = 18),
+  plot.caption = element_text(size = 12, hjust = 1)) ;g3
+```
+
+# Número de casos por estado
+
+```{r echo=FALSE, fig.width=8, fig.height=10}
+# Compare between states
+ggplot(covid_br_states %>% filter(date == used_date), 
+       aes(y = confirmed_cases, x = reorder(state, confirmed_cases), label = confirmed_cases)) +
+  geom_col(fill = "tomato", color = "red", alpha  = .3, size = 0.5) +
+  geom_label() +
+  coord_flip() +
+  theme_cowplot(font_size = 20) +
+  labs(y = "Casos confirmados de covid-19",
+       x = "")
+```
+
+# Dados brutos
+
+```{r echo=FALSE}
+kable(tab_stat)
+```
