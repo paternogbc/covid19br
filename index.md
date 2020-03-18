@@ -29,7 +29,7 @@ Brasil:
 | Artigo                                        |                                                                              |
 | --------------------------------------------- | :--------------------------------------------------------------------------: |
 | Evolução do número de casos confirmados       | [link](https://paternogbc.github.io/covid19br/articles/tendencia_atual.html) |
-| Distribuição dos casos confirmados por estado | [link](https://paternogbc.github.io/covid19br/articles/distrib_mao_pt.html)  |
+| Distribuição dos casos confirmados por estado | [link](https://paternogbc.github.io/covid19br/articles/distrib_map_pt.html)  |
 | Predição do número de casos                   |    [link](https://paternogbc.github.io/covid19br/articles/predicoes.html)    |
 
 ## Instalação do pacote `covid19br`
