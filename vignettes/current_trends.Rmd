@@ -5,7 +5,8 @@ title: "Current trends for covid-19 in Brazil"
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.height=8, fig.width=10
 )
 ```
 
@@ -39,31 +40,7 @@ __The data used in the following analysis were updated on :`r used_date`__
 * Number of descarted cases: __`r n_des`__  
 * Number of deaths by covid-19: __`r n_death`__  
 
-# Distribution of covid-19 cases across Brazil
 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
-covid <- covid_br_states %>% filter(date == used_date)
-covid$confir_cat <- cut(covid$confirmed_cases, breaks = c(-Inf, 0, 5, 10, 100, Inf), include.lowest = TRUE,
-                        c("zero","between 1 e 5", "between 6 e 10", "between 11 e 100", "more than 100"))
-
-states2 <-left_join(states, covid, by = c("abbrev_state" = "state_ID"))
-
-colors <- c("gray", '#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026')
-
-g1 <- ggplot() +
-  geom_sf(data = states2, aes(fill = confir_cat), color= "black", size=.15) +
-  scale_fill_manual(values = colors, name = "") +
-  theme_void(base_size = 16) +
-  labs(title = "covid-19",
-       subtitle = paste(n_total, "confirmed cases in Brazil"),
-       caption = paste("Source: Ministério da Saúde | updated", used_date)) +
-  theme( 
-    plot.title = element_text(size = 18),
-  plot.subtitle = element_text(size = 16),
-  plot.caption = element_text(size = 12, hjust = 1)) 
-g1
-
-```
 
 # Confirmed covid-19 cases in Brazil
 
@@ -76,6 +53,17 @@ mod10    <- lm(log10(confirmed_cases + 1) ~ date, covid_br_all)
 modlog   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all)
 dtime    <- log(2)/modlog$coef[2]   # time to double
 dtime10  <- 1/mod10$coef[2]         # time to x 10
+
+# Predictions (next 10 days)
+mod15   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all %>% filter(date <= "2020-03-15"))
+
+future <- predic_covid(mod15, date_interval = seq(as.Date("2020-03-10"), as.Date("2020-03-20"), 1))
+
+gpred <- plot_future(obs = covid_br_all, pred = future, pred_lab = "Predicted", obs_lab = "Observed",
+                     xlab = "Date", ylab = "Confirmed cases of covid-19",
+                     title = "covid-19 | Brazil", 
+                     subtitle = "Corona virus spreads exponentially",
+                     caption = "Data source: Minstério da Saúde | Predicted on 2020-03-15") 
 
 # Plots------
 # Curva de crescimento no Brasil
@@ -116,6 +104,12 @@ scale_x_date(date_breaks = "3 days", date_labels =  "%d %b") +
     plot.title = element_text(size = 22),
   plot.subtitle = element_text(size = 18),
   plot.caption = element_text(size = 12, hjust = 1)) ;g3
+```
+
+# Predicted vs observed confirmed cases
+
+```{r echo = FALSE}
+gpred
 ```
 
 # Number of cases by state

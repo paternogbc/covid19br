@@ -4,6 +4,10 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<!-- badges: start -->
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+<!-- badges: end -->
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -27,7 +31,7 @@ An updated summary of the number of confirmed covid-19 cases in Brazil is presen
 
 ## Installation
 
-You can install the released development version of covid19br from github with:
+You can install the development version of covid19br from github with:
 
 ``` r
 install.packages("devtools") 
