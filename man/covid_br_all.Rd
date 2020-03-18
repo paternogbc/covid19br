@@ -12,6 +12,7 @@
 \item{\strong{suspected_cases}} {The official number of suspected cases on a given date}
 \item{\strong{confirmed_cases}} {The official number of confirmed cases on a given date}
 \item{\strong{not_confirmed_cases}} {The official number of discarded cases on a given date}
+\item{\strong{deaths}} {The official number of deaths by covid-19}
 }}
 \source{
 Data gathered from:
