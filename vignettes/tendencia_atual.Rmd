@@ -16,11 +16,16 @@ library(covid19br)
 library(geobr)
 library(cowplot)
 library(knitr)
+library(DT)
 
 # Data for comparisons:
-used_date <- "2020-03-16"
+used_date <- max(covid_br_all$date)
+n_sus    <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
+n_des    <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
 n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
+n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
 
+# raw data
 tab_stat <- covid_br_states %>% filter(date == used_date) %>% 
   dplyr::select(Estado = state, "Casos suspeitos" = suspected_cases, 
          "Casos confirmados" = confirmed_cases,
@@ -28,14 +33,22 @@ tab_stat <- covid_br_states %>% filter(date == used_date) %>%
   arrange(Estado) %>% as.data.frame()
 ```
 
+
 __As análises abaixo utilizam dados atualizados na data: `r used_date`__
+
+# Síntese
+
+* Número de casos suspeitos: __`r n_sus`__  
+* Número de casos confirmados: __`r n_total`__  
+* Número de casos descartados: __`r n_des`__  
+* Número de mortes por corona vírus: __`r n_death`__  
 
 # Distribuição de casos de corona virus (covid-19) no Brasil
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 covid <- covid_br_states %>% filter(date == used_date)
 covid$confir_cat <- cut(covid$confirmed_cases, breaks = c(-Inf, 0, 5, 10, 100, Inf), include.lowest = TRUE,
-                        c("zero","entre 1 e 5", "entre 6 e 10", "entre 11 e 100", "more than 100"))
+                        c("zero","entre 1 e 5", "entre 6 e 10", "entre 11 e 100", "maior que 100"))
 
 states2 <-left_join(states, covid, by = c("abbrev_state" = "state_ID"))
 
@@ -80,7 +93,7 @@ g2 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date, label = confirmed_
   annotate(geom='text', x = as.Date("2020-02-26"), y = 160,
            label = "Primeiro caso registrado (26 of Feb - 2020)", hjust =  0, size = 7) +
   theme_cowplot(font_size = 20) +
-  labs(y = "Confirmed covid-19 cases",
+  labs(y = "Casos confirmados de covid-19",
        x = "Date",
        title = "covid-19",
        subtitle = ("O número de casos cresce exponencialmente"),
@@ -123,8 +136,8 @@ ggplot(covid_br_states %>% filter(date == used_date),
        x = "")
 ```
 
-# Dados brutos
+# Raw data
 
 ```{r echo=FALSE}
-kable(tab_stat)
+datatable(tab_stat)
 ```

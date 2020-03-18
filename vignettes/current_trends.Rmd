@@ -16,19 +16,28 @@ library(covid19br)
 library(geobr)
 library(cowplot)
 library(knitr)
+library(DT)
 
 # Data for comparisons:
-used_date <- "2020-03-16"
+used_date <- max(covid_br_all$date)
+n_sus    <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
+n_des    <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
 n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
+n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
 
 tab_stat <- covid_br_states %>% filter(date == used_date) %>% 
-  dplyr::select(Estado = state, "Casos suspeitos" = suspected_cases, 
-         "Casos confirmados" = confirmed_cases,
-         "Casos descartados" = not_confirmed_cases) %>% 
-  arrange(Estado) %>% as.data.frame()
+  arrange(state) %>% as.data.frame()
 ```
 
+
 __The data used in the following analysis were updated on :`r used_date`__
+
+# Summary
+
+* Number of suspected cases: __`r n_sus`__  
+* Number of confirmed cases: __`r n_total`__  
+* Number of descarted cases: __`r n_des`__  
+* Number of deaths by covid-19: __`r n_death`__  
 
 # Distribution of covid-19 cases across Brazil
 
@@ -126,5 +135,5 @@ ggplot(covid_br_states %>% filter(date == used_date),
 # Raw data
 
 ```{r echo=FALSE}
-kable(tab_stat)
+datatable(tab_stat)
 ```
