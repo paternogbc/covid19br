@@ -28,19 +28,19 @@ library(DT)
 
 # Data for comparisons:
 used_date  <- max(covid_br_all$date)
-used_date2  <- "2020-03-17"
 
-n_sus      <- covid_br_all %>% filter(date == "2020-03-17") %>% pull(suspected_cases)
-n_des      <- covid_br_all %>% filter(date == "2020-03-17") %>% pull(not_confirmed_cases)
+n_sus      <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
+n_des      <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
 n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
-n_death    <- 4 #covid_br_all %>% filter(date == "2020-03-17") %>% pull(deaths)
+n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
+
 ```
 
 # `covid19br` 
 
-O objetivo do `covid19br` é fornecer dados atualizados e históricos sobre o número de casos de vírus corona no Brasil.  
+O objetivo do `covid19br` é fornecer um repositório permanente com dados atualizados e todo o histórico do número de casos de vírus corona no Brasil.  
 
-O pacote será atualizado a cada dois dias, incluindo novos dados do Ministério da Saúde (https://saude.gov.br/).
+O pacote será atualizado diariamente, incluindo novos dados do Ministério da Saúde (https://saude.gov.br/) disponibilizados todo fim do dia através da plataforma [IVIS](http://plataforma.saude.gov.br/novocoronavirus/).
 
 ### Síntese dos resultados (`r used_date`)
 
@@ -75,6 +75,9 @@ Para uma descrição online do conjunto de dados, consulte [referência](https:/
 
 Para acessar o código fonte do pacote consulte o repositório no [Github](https://github.com/paternogbc/covid19br).
 
+## Dados brutos
+
+Os dados brutos são baixados através do pacote [`coronabr`](https://github.com/paternogbc/coronabr)^[Pacote desenvolvido por [Andrea](https://twitter.com/SanchezTapiaA) e [Sara](https://twitter.com/mortarasara)] que disponibiliza uma excelente função para baixar os dados não processados diretamente da plataforma [IVIS](http://plataforma.saude.gov.br/novocoronavirus/) do Minitério da Saúde.
 
 ## Contribua
 
@@ -82,8 +85,6 @@ Para contribuir com esse pacote abra um issue [aqui](https://github.com/paternog
 
 ***
 
-
 > __NOTAS:__   
-* As análises abaixo representam apenas o número de casos __confirmados pelo Ministério da Saúde__, portanto,
-não se pode concluir uma relação direta destes números com o número real de pessoas infectadas por covid-19.  
-* Os resultados apresentados abaixo foram atualizados na data: __`r used_date`__
+* os dados disponibilizados representam apenas o número de casos __confirmados pelo Ministério da Saúde__, portanto,
+não se pode concluir uma relação direta destes números com o número real de pessoas infectadas por covid-19 no Brasil.  

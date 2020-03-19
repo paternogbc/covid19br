@@ -9,17 +9,20 @@ maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www
 
 # `covid19br`
 
-O objetivo do `covid19br` é fornecer dados atualizados e históricos
-sobre o número de casos de vírus corona no Brasil.
+O objetivo do `covid19br` é fornecer um repositório permanente com dados
+atualizados e todo o histórico do número de casos de vírus corona no
+Brasil.
 
-O pacote será atualizado a cada dois dias, incluindo novos dados do
-Ministério da Saúde (<https://saude.gov.br/>).
+O pacote será atualizado diariamente, incluindo novos dados do
+Ministério da Saúde (<https://saude.gov.br/>) disponibilizados todo fim
+do dia através da plataforma
+[IVIS](http://plataforma.saude.gov.br/novocoronavirus/).
 
 ### Síntese dos resultados (2020-03-18)
 
-  - Número de casos suspeitos: **8819**  
-  - Número de casos confirmados: **489**  
-  - Número de casos descartados: **1890**  
+  - Número de casos suspeitos: **1.127810^{4}**  
+  - Número de casos confirmados: **428**  
+  - Número de casos descartados: **1841**  
   - Número de mortes por corona vírus: **4**
 
 Veja os links abaixo para uma síntese atualizada dos casos de Corona
@@ -54,6 +57,15 @@ Para uma descrição online do conjunto de dados, consulte
 Para acessar o código fonte do pacote consulte o repositório no
 [Github](https://github.com/paternogbc/covid19br).
 
+## Dados brutos
+
+Os dados brutos são baixados através do pacote
+[`coronabr`](https://github.com/paternogbc/coronabr)\[1\] que
+disponibiliza uma excelente função para baixar os dados não processados
+diretamente da plataforma
+[IVIS](http://plataforma.saude.gov.br/novocoronavirus/) do Minitério da
+Saúde.
+
 ## Contribua
 
 Para contribuir com esse pacote abra um issue
@@ -63,9 +75,10 @@ mensagem.
 -----
 
 > **NOTAS:**  
-> \* As análises abaixo representam apenas o número de casos
+> \* os dados disponibilizados representam apenas o número de casos
 > **confirmados pelo Ministério da Saúde**, portanto, não se pode
 > concluir uma relação direta destes números com o número real de
-> pessoas infectadas por covid-19.  
-> \* Os resultados apresentados abaixo foram atualizados na data:
-> **2020-03-18**
+> pessoas infectadas por covid-19 no Brasil.
+
+1.  Pacote desenvolvido por [Andrea](https://twitter.com/SanchezTapiaA)
+    e [Sara](https://twitter.com/mortarasara)

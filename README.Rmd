@@ -19,9 +19,9 @@ knitr::opts_chunk$set(
 
 # `covid19br` 
 
-The goal of `covid19br` is to provided updated and historical data on the number of cases of corona virus for Brasil.
+The goal of `covid19br` is to provide a permanent repository with data and the entire history of corona virus cases in Brazil.
 
-The package will be updated every two days including new data from [Ministério da Saúde](https://saude.gov.br/).
+The package will be updated daily, including new data from the Ministry of Health(https://saude.gov.br/) made available through the platform [IVIS](http://platform.saude.gov.br/novocoronavirus/).
 
 ## Current trend 
 
@@ -58,6 +58,11 @@ head(covid_br_all)
 head(covid_br_states)
 ```
 
+## Raw data
+
+The raw data are downloaded via the package [`coronabr`](https://github.com/paternogbc/coronabr)^[Package developed by [Andrea](https://twitter.com/SanchezTapiaA) and [Sara](https://twitter.com/mortarasara)] which provides an excellent function to download the raw data directly from the platform [IVIS](http://platform.saude.gov.br/novocoronavirus/) of the Ministry of Health.
+
+***
 
 Please note that the 'covid19br' project is released with a
 [Contributor Code of Conduct](CODE_OF_CONDUCT.md).

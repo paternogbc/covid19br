@@ -9,11 +9,12 @@ maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www
 
 # `covid19br`
 
-The goal of `covid19br` is to provided updated and historical data on
-the number of cases of corona virus for Brasil.
+The goal of `covid19br` is to provide a permanent repository with data
+and the entire history of corona virus cases in Brazil.
 
-The package will be updated every two days including new data from
-[Ministério da Saúde](https://saude.gov.br/).
+The package will be updated daily, including new data from the Ministry
+of Health(<https://saude.gov.br/>) made available through the platform
+[IVIS](http://platform.saude.gov.br/novocoronavirus/).
 
 ## Current trend
 
@@ -49,30 +50,43 @@ library(covid19br)
 # To get historical data for Brazil: 
 head(covid_br_all)
 #> # A tibble: 6 x 7
-#>   date       state state_ID suspected_cases confirmed_cases not_confirmed_c…
-#>   <date>     <chr> <chr>              <dbl>           <dbl>            <dbl>
-#> 1 2020-02-25 Braz… BR                     0               0                0
-#> 2 2020-02-26 Braz… BR                     0               1                0
-#> 3 2020-03-04 Braz… BR                     0               3                0
-#> 4 2020-03-05 Braz… BR                     0              14                0
-#> 5 2020-03-10 Braz… BR                   893              34              770
-#> 6 2020-03-11 Braz… BR                   907              52              935
-#> # … with 1 more variable: deaths <dbl>
+#>   date       suspected_cases confirmed_cases not_confirmed_c… deaths state
+#>   <date>               <dbl>           <dbl>            <dbl>  <dbl> <chr>
+#> 1 2020-02-26              20               1               59      0 Braz…
+#> 2 2020-02-27             132               1               60      0 Braz…
+#> 3 2020-02-28             182               1               71      0 Braz…
+#> 4 2020-02-29             207               2               79      0 Braz…
+#> 5 2020-03-01             252               2               89      0 Braz…
+#> 6 2020-03-02             433               2              162      0 Braz…
+#> # … with 1 more variable: state_ID <chr>
 
 # TO get historical data by state:
 head(covid_br_states)
-#> # A tibble: 6 x 7
-#>   state state_ID suspected_cases confirmed_cases not_confirmed_c… date      
-#>   <chr> <chr>              <dbl>           <dbl>            <dbl> <date>    
-#> 1 Acre  AC                     3               0                0 2020-03-15
-#> 2 Alag… AL                    14               1               21 2020-03-15
-#> 3 Amapá AP                     1               0                0 2020-03-15
-#> 4 Amaz… AM                     0               1                7 2020-03-15
-#> 5 Bahia BA                    65               2               36 2020-03-15
-#> 6 Ceará CE                    22               0               59 2020-03-15
-#> # … with 1 more variable: deaths <dbl>
+#> # A tibble: 6 x 8
+#>   state state_ID state_uid suspected_cases confirmed_cases not_confirmed_c…
+#>   <fct> <fct>    <fct>               <dbl>           <dbl>            <dbl>
+#> 1 Ceará CE       23                      0               0                1
+#> 2 Para… PB       25                      1               0                0
+#> 3 Pern… PE       26                      1               0                0
+#> 4 Bahia BA       29                      0               0                2
+#> 5 Mina… MG       31                      2               0                2
+#> 6 Espí… ES       32                      1               0                0
+#> # … with 2 more variables: deaths <dbl>, date <date>
 ```
+
+## Raw data
+
+The raw data are downloaded via the package
+[`coronabr`](https://github.com/paternogbc/coronabr)\[1\] which provides
+an excellent function to download the raw data directly from the
+platform [IVIS](http://platform.saude.gov.br/novocoronavirus/) of the
+Ministry of Health.
+
+-----
 
 Please note that the ‘covid19br’ project is released with a [Contributor
 Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project,
 you agree to abide by its terms.
+
+1.  Package developed by [Andrea](https://twitter.com/SanchezTapiaA) and
+    [Sara](https://twitter.com/mortarasara)
