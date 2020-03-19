@@ -24,11 +24,13 @@ library(knitr)
 library(DT)
 
 # Data for comparisons:
-used_date <- max(covid_br_all$date)
-n_sus    <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
-n_des    <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
+used_date  <- max(covid_br_all$date)
+used_date2  <- "2020-03-17"
+
+n_sus      <- covid_br_all %>% filter(date == "2020-03-17") %>% pull(suspected_cases)
+n_des      <- covid_br_all %>% filter(date == "2020-03-17") %>% pull(not_confirmed_cases)
 n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
-n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
+n_death    <- 4 #covid_br_all %>% filter(date == "2020-03-17") %>% pull(deaths)
 
 # raw data
 tab_stat <- covid_br_states %>% filter(date == used_date) %>% 
@@ -109,7 +111,13 @@ scale_x_date(date_breaks = "3 days", date_labels =  "%d %b") +
 # Número de casos por estado
 
 ```{r}
-covid_br_states %>% filter(confirmed_cases > 10 & date > "2020-02-22") %>% 
+covid_br_states %>% filter(date == used_date) %>% 
+  arrange(desc(confirmed_cases)) %>% 
+  ungroup() %>% 
+  slice(1:5) %>% 
+  pull(state) -> top_state
+  
+covid_br_states  %>% filter(state %in% top_state) %>% 
   ggplot(aes(y = confirmed_cases + 1, x = date, color = state)) +
   geom_point(size = 5, alpha = .75) +
   geom_line() +
@@ -120,7 +128,6 @@ covid_br_states %>% filter(confirmed_cases > 10 & date > "2020-02-22") %>%
   geom_line(data = covid_br_all %>% filter(confirmed_cases > 10 & date > "2020-02-22"), 
             aes(y = confirmed_cases + 1, x = date, color = "Brasil")) +
   theme_cowplot(font_size = 20) +
-  scale_color_brewer("", type = "qual", palette = 2) +
   labs(y = "Casos confirmados (covid-19)",
        x = "Data",
        title = "covid-19 | Brasil",
