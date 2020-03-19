@@ -14,10 +14,6 @@
 \item{\strong{not_confirmed_cases}} {The official number of discarded cases on a given date}
 \item{\strong{deaths}} {The official number of deaths by covid-19}
 }}
-\source{
-Data gathered from:
-\url{https://saude.gov.br/}
-}
 \usage{
 covid_br_states
 }

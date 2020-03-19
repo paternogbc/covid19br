@@ -51,8 +51,10 @@ NULL
 #' \item{\strong{confirmed_cases}} {The official number of confirmed cases on a given date}
 #' \item{\strong{not_confirmed_cases}} {The official number of discarded cases on a given date}
 #' \item{\strong{deaths}} {The official number of deaths by covid-19}
-
 #' }
+"covid_br_states"
+
+#'
 #'
 #' @source
 #' Data gathered from:
@@ -63,10 +65,21 @@ NULL
 #' Brazilian map with states
 #'
 #' @format Simple feature collection with 27 features and 5 fieldS
-
 #' @source
 #' generated with
 #' library(geobr)
 #' states <- read_state(year=2018)
 #'
 "states"
+
+#' Demographic information for Brazilian states
+#'
+#' @format A data frame with four variables:
+#' \itemize{
+#' \item{\strong{date}} {The date (yyyy-mm-dd)}
+#' \item{\strong{state}} {The name of the state}
+#' \item{\strong{pop}} {State population}
+#' \item{\strong{area}} {State area in km^2}
+#' \item{\strong{density}} {State density in people per km2}
+#' }
+"info_states"
