@@ -24,11 +24,13 @@ library(knitr)
 library(DT)
 
 # Data for comparisons:
-used_date <- max(covid_br_all$date)
-n_sus    <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
-n_des    <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
+used_date  <- max(covid_br_all$date)
+used_date2  <- "2020-03-17"
+
+n_sus      <- covid_br_all %>% filter(date == "2020-03-17") %>% pull(suspected_cases)
+n_des      <- covid_br_all %>% filter(date == "2020-03-17") %>% pull(not_confirmed_cases)
 n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
-n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
+n_death    <- 4 #covid_br_all %>% filter(date == "2020-03-17") %>% pull(deaths)
 
 # raw data
 tab_stat <- covid_br_states %>% filter(date == used_date) %>% 

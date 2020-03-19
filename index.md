@@ -15,12 +15,12 @@ sobre o número de casos de vírus corona no Brasil.
 O pacote será atualizado a cada dois dias, incluindo novos dados do
 Ministério da Saúde (<https://saude.gov.br/>).
 
-### Síntese dos resultados (2020-03-17)
+### Síntese dos resultados (2020-03-18)
 
   - Número de casos suspeitos: **8819**  
-  - Número de casos confirmados: **290**  
+  - Número de casos confirmados: **489**  
   - Número de casos descartados: **1890**  
-  - Número de mortes por corona vírus: **1**
+  - Número de mortes por corona vírus: **4**
 
 Veja os links abaixo para uma síntese atualizada dos casos de Corona
 Vírus (covid-19) no
@@ -68,4 +68,4 @@ mensagem.
 > concluir uma relação direta destes números com o número real de
 > pessoas infectadas por covid-19.  
 > \* Os resultados apresentados abaixo foram atualizados na data:
-> **2020-03-17**
+> **2020-03-18**

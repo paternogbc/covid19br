@@ -24,11 +24,13 @@ library(knitr)
 library(DT)
 
 # Data for comparisons:
-used_date <- max(covid_br_all$date)
-n_sus    <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
-n_des    <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
+used_date  <- max(covid_br_all$date)
+used_date2  <- "2020-03-17"
+
+n_sus      <- covid_br_all %>% filter(date == "2020-03-17") %>% pull(suspected_cases)
+n_des      <- covid_br_all %>% filter(date == "2020-03-17") %>% pull(not_confirmed_cases)
 n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
-n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
+n_death    <- 4 #covid_br_all %>% filter(date == "2020-03-17") %>% pull(deaths)
 
 # raw data
 tab_stat <- covid_br_states %>% filter(date == used_date) %>% 
@@ -62,15 +64,15 @@ dtime    <- log(2)/modlog$coef[2]   # time to double
 dtime10  <- 1/mod10$coef[2]         # time to x 10
 
 # Predictions (next 10 days)
-mod15   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all %>% filter(date < used_date))
+mod15   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all %>% filter(date < "2020-03-16"))
 
 future <- predic_covid(mod15, date_interval = seq(as.Date("2020-03-10"), as.Date("2020-03-26"), 1))
 
 gpred <- plot_future(obs = covid_br_all, pred = future, 
                      title = "covid-19 | Brasil", 
                      subtitle = "Corona se espalha exponencialmente",
-                     caption = "Data source: Minstério da Saúde | Predicted on 2020-03-15") +
-  scale_y_continuous(limits = c(0, 6000), breaks = seq(0, 6000, 1000), labels = c(0, paste(seq(1,6,1), "mil")))
+                     caption = "Data source: Minstério da Saúde | Predicted on 2020-03-16") +
+  scale_y_continuous(limits = c(0, 7000), breaks = seq(0, 7000, 1000), labels = c(0, paste(seq(1,7,1), "mil")))
 gpred
 ```
 

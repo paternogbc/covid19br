@@ -3,6 +3,9 @@
 ^LICENSE\.md$
 ^CODE_OF_CONDUCT\.md$
 ^README\.Rmd$
+^INDEX\.Rmd$
+^data-raw
+^index.md
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$

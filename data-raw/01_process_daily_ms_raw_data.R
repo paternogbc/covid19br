@@ -1,8 +1,5 @@
 # Script to process raw data
 # Updated: 2020/03/17
-
-rm(list = ls())
-
 # Packages--------------------------------------------------------------------------------
 library(janitor)
 library(tidyverse)
