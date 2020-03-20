@@ -48,3 +48,7 @@ Para contribuir com esse pacote abra um issue [aqui](https://github.com/paternog
 não se pode concluir uma relação direta destes números com o número real de pessoas infectadas por covid-19 no Brasil.  
 
 * O objetivo desse pacote é manter o histórico de casos de covid19 no Brasil de forma aberta. Não faça uso indevido desse material. Seja responsável e consciente ao acessar e analisar esses dados.  
+
+## Dados brutos
+
+Os dados brutos foram baixados com o pacote [`coronabr`](https://github.com/paternogbc/coronabr)^[Pacote desenvolvido por  [Andrea](https://twitter.com/SanchezTapiaA) and [Sara](https://twitter.com/mortarasara)] que oferece uma função excelente para baixar os dados não processados diretamente da plataforma [IVIS](http://platform.saude.gov.br/novocoronavirus/) do Ministério da Saúde.

@@ -23,11 +23,11 @@ The goal of `covid19br` is to provide a permanent repository with data and the e
 
 The package will be updated daily, including new data from the Ministry of Health(https://saude.gov.br/) made available through the platform [IVIS](http://platform.saude.gov.br/novocoronavirus/).
 
+See the package page for [reference](https://paternogbc.github.io/covid19br/index.html).
+
 ## Current trend 
 
-An updated summary of the number of confirmed covid-19 cases in Brazil is presented [here](https://paternogbc.github.io/covid19br/articles/current_trends.html).
-
-> A versão em portugês desta análise se encontra [aqui](https://paternogbc.github.io/covid19br/articles/tendencia_atual.html).
+An updated summary of the number of confirmed covid-19 cases in Brazil is presented [here](https://paternogbc.github.io/covid19br/articles/en_current_trends.html).
 
 ## Installation
 
@@ -52,10 +52,13 @@ page](https://paternogbc.github.io/covid19br/reference/index.html)
 library(covid19br)
 
 # To get historical data for Brazil: 
-head(covid_br_all)
+head(covid_br)
 
 # TO get historical data by state:
-head(covid_br_states)
+head(covid_states)
+
+# TO get historical data by region:
+head(covid_regions)
 ```
 
 ## Raw data
