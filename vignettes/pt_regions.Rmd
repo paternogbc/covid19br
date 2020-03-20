@@ -1,0 +1,71 @@
+---
+title: "Taxa de crescimento entre as regiões"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Taxa de crescimento entre as regiões}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo=FALSE, 
+  warning=FALSE, 
+  message=FALSE, 
+  fig.height=8, 
+  fig.width=10
+)
+```
+
+```{r setup, message=FALSE, warning=FALSE, echo=FALSE}
+library(covid19br)
+library(tidyverse)
+library(covid19br)
+library(geobr)
+library(cowplot)
+library(knitr)
+library(DT)
+```
+
+# Como está o crescimento de casos entre regiões?
+
+## Números absolutos
+
+```{r}
+library(covid19br)
+
+ggplot(covid_regions %>% filter(confirmed_cases > 1), aes(y = confirmed_cases, x = date,
+                                                          color = region,  fill = region)) +
+  geom_point(size = 3, shape = 21, color = "black") +
+  geom_line(show.legend = F) +
+  scale_color_brewer(name = "", type = "qual", palette = 2, aesthetics = c("color", "fill")) +
+  scale_x_date(date_breaks = "3 days", date_labels =  "%d %b") +
+  theme_classic(base_size = 20) +
+  labs(y = "Número de casos confirmados",
+       x = "Data",
+       title = "covid-19 | Brasil",
+       subtitle = "Número de casos por região",
+       caption = "Fonte: Ministério da Saúde | 18 de Março | 2020")
+```
+
+
+## Números absolutos
+
+```{r}
+ggplot(covid_regions %>% filter(confirmed_cases > 1), aes(y = confirmed_cases, x = date, color = region)) +
+  scale_y_log10(name = "") +
+  geom_point() +
+  scale_color_brewer(name = "", type = "qual", palette = 2) +
+  geom_smooth(method = lm) +
+  scale_x_date(date_breaks = "3 days", date_labels =  "%d %b") +
+  theme_classic(base_size = 20) +
+  labs(y = "Número de casos confirmados [log10]",
+       x = "Data",
+       title = "covid-19 | Brasil",
+       subtitle = "Os casos crescem na mesma proporção entre regiões",
+       caption = "Fonte: Ministério da Saúde | 18 de Março | 2020")
+
+```
+

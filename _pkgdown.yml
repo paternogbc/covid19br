@@ -22,10 +22,13 @@ navbar:
     menu:
     - text: Evolução do número de casos
       href: articles/pt_tendencia_atual.html
+    - text: Número de casos por região
+      href: articles/pt_regions.html
     - text: Distribuição geográfica dos casos
       href: articles/pt_distrib_map.html
     - text: Predição do número de casos
       href: articles/pt_predicoes.html
+
 
   - text: Analyses (en)
     menu:
