@@ -1,0 +1,109 @@
+---
+title: "Como usar acessar os dados?"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning=FALSE, 
+  message=FALSE, 
+  fig.height = 5, 
+  fig.width  = 7
+)
+```
+
+```{r setup}
+library(covid19br)
+```
+
+## Instalação do pacote `covid19br`
+
+Você pode instalar a versão de desenvolvimento do pacote `covid19br` no Github:
+
+``` r
+install.packages("devtools") 
+devtools::install_github(repo = "paternogbc/covid19br")
+```
+
+## Acesse os dados
+
+O pacote `covid19br` disponibiliza três bancos de dados com o histórico do número de casos de corona vírus no Brasil (covid-19):
+
+1. __covid_br:__ O número de casos para todo o Brasil   
+2. __covid_regions:__ O número de casos por cada região do Brasil  
+3. __covid_states:__ O número de casos para cada estado do Brasil  
+
+Para acessar os dados diretamente no seu computador. Após instalar, carregue o pacote `covid19br` dentro do Programa R. Pronto, você já tem acesso aos três bancos de dados atualizados disponíveis como objetos no seu ambiente de R (environment). Veja como é fácil acessar:  
+
+```{r}
+library(covid19br)
+
+head(covid_br)
+
+head(covid_states)
+
+head(covid_regions)
+
+```
+
+## Faça seus gráficos e análises
+
+```{r}
+# Carregue os pacotes necessários
+library(dplyr) 
+library(ggplot2) 
+library(covid19br)
+
+# Quais são os 5 estados com o maior número de casos confirmados?
+top5 <-
+  covid_states %>% 
+  filter(date == "2020-03-18") %>% 
+  top_n(n = 5, wt = confirmed_cases) %>% 
+  select(state, confirmed_cases) %>% 
+  arrange(desc(confirmed_cases)) 
+top5
+
+# Faça um gráfico
+ggplot(top5, aes(y = confirmed_cases, x = state)) +
+  geom_col(fill = "tomato") +
+  theme_classic(base_size = 20) +
+  coord_flip()
+```
+
+## Veja a tendência de casos no Brasil
+
+```{r}
+# Carregue os pacotes necessários
+library(dplyr) 
+library(ggplot2) 
+library(covid19br)
+
+# Faça um gráfico
+ggplot(covid_br, aes(y = confirmed_cases, x = date)) +
+  geom_line(color = "red", size = 2) +
+  theme_classic(base_size = 18)
+```
+
+## Veja a tendência de casos para cada região
+
+```{r}
+# Carregue os pacotes necessários
+library(dplyr) 
+library(ggplot2) 
+library(covid19br)
+
+# Faça um gráfico
+ggplot(covid_regions, aes(y = confirmed_cases, x = date, color = region)) +
+  geom_line() +
+  theme_classic(base_size = 18) 
+```
+
+# Help
+
+No `R`, a documentação para o conjunto de dados` covid19br` pode ser acessada com o
+comando padrão `help` (por exemplo,`? covid_br_all` e `? covid_br_states`).
+
+Para uma descrição online do conjunto de dados, consulte [referência](https://paternogbc.github.io/covid19br/reference/index.html).
+
+Para acessar o código fonte do pacote consulte o repositório no [Github](https://github.com/paternogbc/covid19br).

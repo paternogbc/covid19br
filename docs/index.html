@@ -45,26 +45,38 @@
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="articles/intro.html">Tutorial</a>
+</li>
+<li>
+  <a href="reference/index.html">Referência</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Análises (pt)
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/current_trends.html">Current trends for covid-19 in Brazil</a>
+      <a href="articles/pt_tendencia_atual.html">Evolução do número de casos</a>
     </li>
     <li>
-      <a href="articles/distrib_map_pt.html">Distribuição geográfica dos casos de covid-19 no Brasil</a>
+      <a href="articles/pt_distrib_map.html">Distribuição geográfica dos casos</a>
     </li>
     <li>
-      <a href="articles/predicoes.html">Predição do número de casos de covid-19 no Brasil</a>
+      <a href="articles/pt_predicoes.html">Predição do número de casos</a>
     </li>
-    <li>
-      <a href="articles/tendencia_atual.html">Evolução do número de casos confirmados de covid-19 no Brasil</a>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Analyses (en)
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/en_current_trends.html">Current trends for covid-19 in Brazil</a>
     </li>
   </ul>
 </li>
@@ -72,7 +84,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/paternogbc/covid19br">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -90,80 +102,34 @@
   <div class="contents col-md-9">
 
 
+<blockquote>
+<p>Os dados estão desatualizados porque a plataforma <a href="http://plataforma.saude.gov.br/novocoronavirus/">IVIS</a> encontra-se em manutenção.</p>
+</blockquote>
+<p><strong>Última atualização de dados:</strong> 2020-03-18.</p>
 <div id="covid19br" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#covid19br" class="anchor"></a><code>covid19br</code>
 </h1></div>
 <p>O objetivo do <code>covid19br</code> é fornecer um repositório permanente com dados atualizados e todo o histórico do número de casos de vírus corona no Brasil.</p>
 <p>O pacote será atualizado diariamente, incluindo novos dados do Ministério da Saúde (<a href="https://saude.gov.br/" class="uri">https://saude.gov.br/</a>) disponibilizados todo fim do dia através da plataforma <a href="http://plataforma.saude.gov.br/novocoronavirus/">IVIS</a>.</p>
-<div id="sintese-dos-resultados-2020-03-18" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sintese-dos-resultados-2020-03-18" class="anchor"></a>Síntese dos resultados (2020-03-18)</h3>
-<ul>
-<li>Número de casos suspeitos: <strong>1.127810^{4}</strong><br>
-</li>
-<li>Número de casos confirmados: <strong>428</strong><br>
-</li>
-<li>Número de casos descartados: <strong>1841</strong><br>
-</li>
-<li>Número de mortes por corona vírus: <strong>4</strong>
-</li>
-</ul>
-<p>Veja os links abaixo para uma síntese atualizada dos casos de Corona Vírus (covid-19) no Brasil:</p>
-<table class="table">
-<thead><tr class="header">
-<th>Artigo</th>
-<th align="center"></th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Evolução do número de casos confirmados</td>
-<td align="center"><a href="https://paternogbc.github.io/covid19br/articles/tendencia_atual.html">link</a></td>
-</tr>
-<tr class="even">
-<td>Distribuição dos casos confirmados por estado</td>
-<td align="center"><a href="https://paternogbc.github.io/covid19br/articles/distrib_map_pt.html">link</a></td>
-</tr>
-<tr class="odd">
-<td>Predição do número de casos</td>
-<td align="center"><a href="https://paternogbc.github.io/covid19br/articles/predicoes.html">link</a></td>
-</tr>
-</tbody>
-</table>
 </div>
-<div id="instalacao-do-pacote-covid19br" class="section level2">
-<h2 class="hasAnchor">
-<a href="#instalacao-do-pacote-covid19br" class="anchor"></a>Instalação do pacote <code>covid19br</code>
-</h2>
-<p>Você pode instalar a versão de desenvolvimento do pacote <code>covid19br</code> no Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>) </a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="dt">repo =</span> <span class="st">"paternogbc/covid19br"</span>)</a></code></pre></div>
-</div>
-<div id="help" class="section level2">
-<h2 class="hasAnchor">
-<a href="#help" class="anchor"></a>Help</h2>
-<p>No <code>R</code>, a documentação para o conjunto de dados<code>covid19br</code> pode ser acessada com o comando padrão <code>help</code> (por exemplo,<code><a href="reference/covid_br_all.html">? covid_br_all</a></code> e <code><a href="reference/covid_br_states.html">? covid_br_states</a></code>).</p>
-<p>Para uma descrição online do conjunto de dados, consulte <a href="https://paternogbc.github.io/covid19br/reference/index.html">referência</a>.</p>
-<p>Para acessar o código fonte do pacote consulte o repositório no <a href="https://github.com/paternogbc/covid19br">Github</a>.</p>
-</div>
-<div id="dados-brutos" class="section level2">
-<h2 class="hasAnchor">
-<a href="#dados-brutos" class="anchor"></a>Dados brutos</h2>
-<p>Os dados brutos são baixados através do pacote <a href="https://github.com/paternogbc/coronabr"><code>coronabr</code></a>[1] que disponibiliza uma excelente função para baixar os dados não processados diretamente da plataforma <a href="http://plataforma.saude.gov.br/novocoronavirus/">IVIS</a> do Minitério da Saúde.</p>
-</div>
+<div id="tutorial" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tutorial" class="anchor"></a>Tutorial</h1>
+<p>Para aprender como usar o pacote, veja o <a href="https://paternogbc.github.io/covid19br/articles/intro.html">tutorial</a> online.</p>
 <div id="contribua" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contribua" class="anchor"></a>Contribua</h2>
 <p>Para contribuir com esse pacote abra um issue <a href="https://github.com/paternogbc/covid19br/issues/new">aqui</a> e deixe uma mensagem.</p>
 <hr>
-<blockquote>
-<p><strong>NOTAS:</strong><br>
-* os dados disponibilizados representam apenas o número de casos <strong>confirmados pelo Ministério da Saúde</strong>, portanto, não se pode concluir uma relação direta destes números com o número real de pessoas infectadas por covid-19 no Brasil.</p>
-</blockquote>
-<ol>
-<li>Pacote desenvolvido por <a href="https://twitter.com/SanchezTapiaA">Andrea</a> e <a href="https://twitter.com/mortarasara">Sara</a>
-</li>
-</ol>
+</div>
+<div id="notas" class="section level2">
+<h2 class="hasAnchor">
+<a href="#notas" class="anchor"></a>NOTAS</h2>
+<ul>
+<li><p>os dados disponibilizados representam apenas o número de casos <strong>confirmados pelo Ministério da Saúde</strong>, portanto, não se pode concluir uma relação direta destes números com o número real de pessoas infectadas por covid-19 no Brasil.</p></li>
+<li><p>O objetivo desse pacote é manter o histórico de casos de covid19 no Brasil de forma aberta. Não faça uso indevido desse material. Seja responsável e consciente ao acessar e analisar esses dados.</p></li>
+</ul>
 </div>
 </div>
 

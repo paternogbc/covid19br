@@ -11,56 +11,81 @@ NULL
 #' \url{https://github.com/paternogbc/covid19br/issues}.
 #' @section How to contribute?:
 #'
-#' You can find instructions on how to contribute to \bold{teads} at
+#' You can find instructions on how to contribute to \bold{covid19br} at
 #' this link: \url{https://github.com/paternogbc/covid19br}
 #'
 #' @details
 #'
 #' This package is build to keep an updated repository with the oficial data on corona virus for Brasil.
 #' The source of data source is: Ministério da Saúde (https://saude.gov.br/).
+#'
+#' In this package I use the r-package `coronabr` to download the raw data from Ministério da Saúde (see reference bewlo).
+#'
+#' @references
+#' Sara Mortara and Andrea Sánchez-Tapia (2020). coronabr: Download de dados do coronavírus. R package version 0.1.0.
 #' @docType package
 NULL
 
-#' Corona virus cases for Brasil.
+#' Historical number of covid-19 cases for Brazil.
 #'
-#' @format A data frame with six variables:
+#' @format A data frame with nine variables:
 #' \itemize{
-#' \item{\strong{date}} {The date (yyyy-mm-dd)}
+#' \item{\strong{region}} {The region of Brazil}
 #' \item{\strong{state}} {The name of the state}
 #' \item{\strong{state_ID}} {the code of the state}
+#' \item{\strong{state_uid}} {the uid code of the state}
 #' \item{\strong{suspected_cases}} {The official number of suspected cases on a given date}
 #' \item{\strong{confirmed_cases}} {The official number of confirmed cases on a given date}
 #' \item{\strong{not_confirmed_cases}} {The official number of discarded cases on a given date}
 #' \item{\strong{deaths}} {The official number of deaths by covid-19}
+#' \item{\strong{date}} {The date (yyyy-mm-dd)}
 #' }
 #'
 #' @source
-#' Data gathered from:
-#' \url{https://saude.gov.br/}
+#' Data downloaded from: \url{http://plataforma.saude.gov.br/novocoronavirus/} with the
+#' package `coronabr`: \url{https://github.com/liibre/coronabr}.
 #'
-"covid_br_all"
+"covid_br"
 
-#' Corona virus cases for each brazilian state.
+#' Historical number of covid-19 cases for states in Brazil.
 #'
-#' @format A data frame with six variables:
+#' @format A data frame with nine variables:
 #' \itemize{
-#' \item{\strong{date}} {The date (yyyy-mm-dd)}
+#' \item{\strong{region}} {The region of Brazil}
 #' \item{\strong{state}} {The name of the state}
 #' \item{\strong{state_ID}} {the code of the state}
+#' \item{\strong{state_uid}} {the uid code of the state}
 #' \item{\strong{suspected_cases}} {The official number of suspected cases on a given date}
 #' \item{\strong{confirmed_cases}} {The official number of confirmed cases on a given date}
 #' \item{\strong{not_confirmed_cases}} {The official number of discarded cases on a given date}
 #' \item{\strong{deaths}} {The official number of deaths by covid-19}
+#' \item{\strong{date}} {The date (yyyy-mm-dd)}
 #' }
-"covid_br_states"
-
-#'
 #'
 #' @source
-#' Data gathered from:
-#' \url{https://saude.gov.br/}
+#' Data downloaded from: \url{http://plataforma.saude.gov.br/novocoronavirus/} with the
+#' package `coronabr`: \url{https://github.com/liibre/coronabr}.
+"covid_states"
+
+#' Historical number of covid-19 cases for regions in Brazil.
 #'
-"covid_br_states"
+#' @format A data frame with nine variables:
+#' \itemize{
+#' \item{\strong{region}} {The region of Brazil}
+#' \item{\strong{state}} {The name of the state}
+#' \item{\strong{state_ID}} {the code of the state}
+#' \item{\strong{state_uid}} {the uid code of the state}
+#' \item{\strong{suspected_cases}} {The official number of suspected cases on a given date}
+#' \item{\strong{confirmed_cases}} {The official number of confirmed cases on a given date}
+#' \item{\strong{not_confirmed_cases}} {The official number of discarded cases on a given date}
+#' \item{\strong{deaths}} {The official number of deaths by covid-19}
+#' \item{\strong{date}} {The date (yyyy-mm-dd)}
+#' }
+#'
+#' @source
+#' Data downloaded from: \url{http://plataforma.saude.gov.br/novocoronavirus/} with the
+#' package `coronabr`: \url{https://github.com/liibre/coronabr}.
+"covid_regions"
 
 #' Brazilian map with states
 #'
@@ -70,7 +95,17 @@ NULL
 #' library(geobr)
 #' states <- read_state(year=2018)
 #'
-"states"
+"map_states"
+
+#' Brazilian map with regions
+#'
+#' @format Simple feature collection with 27 features and 5 fieldS
+#' @source
+#' generated with
+#' library(geobr)
+#' map_regions <- read_region(year=2018)
+#'
+"map_regions"
 
 #' Demographic information for Brazilian states
 #'

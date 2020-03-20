@@ -24,15 +24,15 @@ library(knitr)
 library(DT)
 
 # Data for comparisons:
-used_date  <- max(covid_br_all$date)
+used_date  <- max(covid_br$date)
 
-n_sus      <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
-n_des      <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
-n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
-n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
+n_sus      <- covid_br %>% filter(date == used_date) %>% pull(suspected_cases)
+n_des      <- covid_br %>% filter(date == used_date) %>% pull(not_confirmed_cases)
+n_total    <- covid_br %>% filter(date == used_date) %>% pull(confirmed_cases)
+n_death    <- covid_br %>% filter(date == used_date) %>% pull(deaths)
 
 # raw data
-tab_stat <- covid_br_states %>% filter(date == used_date) %>% 
+tab_stat <- covid_states %>% filter(date == used_date) %>% 
   dplyr::select(Estado = state, "Casos suspeitos" = suspected_cases, 
          "Casos confirmados" = confirmed_cases,
          "Casos descartados" = not_confirmed_cases) %>% 
@@ -101,17 +101,17 @@ não se pode concluir uma relação direta destes números com o número real de
 library(covid19br)
 # calculate doubling time:
 
-mod10    <- lm(log10(confirmed_cases + 1) ~ date, covid_br_all)
-modlog   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all)
+mod10    <- lm(log10(confirmed_cases + 1) ~ date, covid_br)
+modlog   <- lm(log(confirmed_cases + 1) ~ date, covid_br)
 dtime    <- log(2)/modlog$coef[2]   # time to double
 dtime10  <- 1/mod10$coef[2]         # time to x 10
 
 # Predictions (next 10 days)
-mod15   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all %>% filter(date < "2020-03-16"))
+mod15   <- lm(log(confirmed_cases + 1) ~ date, covid_br %>% filter(date < "2020-03-16"))
 
 future <- predic_covid(mod15, date_interval = seq(as.Date("2020-03-10"), as.Date("2020-03-26"), 1))
 
-gpred <- plot_future(obs = covid_br_all, pred = future, 
+gpred <- plot_future(obs = covid_br, pred = future, 
                      title = "covid-19 | Brasil", 
                      subtitle = "Corona se espalha exponencialmente",
                      caption = "Data source: Minstério da Saúde | Predicted on 2020-03-16") +

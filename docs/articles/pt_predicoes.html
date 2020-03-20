@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evolução do número de casos confirmados de covid-19 no Brasil • covid19br</title>
+<title>Predição do número de casos de covid-19 no Brasil • covid19br</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Evolução do número de casos confirmados de covid-19 no Brasil">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Predição do número de casos de covid-19 no Brasil">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -44,26 +44,38 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/intro.html">Tutorial</a>
+</li>
+<li>
+  <a href="../reference/index.html">Referência</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Análises (pt)
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/current_trends.html">Current trends for covid-19 in Brazil</a>
+      <a href="../articles/pt_tendencia_atual.html">Evolução do número de casos</a>
     </li>
     <li>
-      <a href="../articles/distrib_map_pt.html">Distribuição geográfica dos casos de covid-19 no Brasil</a>
+      <a href="../articles/pt_distrib_map.html">Distribuição geográfica dos casos</a>
     </li>
     <li>
-      <a href="../articles/predicoes.html">Predição do número de casos de covid-19 no Brasil</a>
+      <a href="../articles/pt_predicoes.html">Predição do número de casos</a>
     </li>
-    <li>
-      <a href="../articles/tendencia_atual.html">Evolução do número de casos confirmados de covid-19 no Brasil</a>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Analyses (en)
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/en_current_trends.html">Current trends for covid-19 in Brazil</a>
     </li>
   </ul>
 </li>
@@ -71,7 +83,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/paternogbc/covid19br">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -85,18 +97,18 @@
 
       
 
-      </header><script src="tendencia_atual_files/htmlwidgets-1.5.1/htmlwidgets.js"></script><script src="tendencia_atual_files/jquery-1.12.4/jquery.min.js"></script><link href="tendencia_atual_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="tendencia_atual_files/datatables-binding-0.12/datatables.js"></script><link href="tendencia_atual_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="tendencia_atual_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="tendencia_atual_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="tendencia_atual_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet">
-<script src="tendencia_atual_files/crosstalk-1.0.0/js/crosstalk.min.js"></script><div class="row">
+      </header><script src="pt_predicoes_files/htmlwidgets-1.5.1/htmlwidgets.js"></script><script src="pt_predicoes_files/jquery-1.12.4/jquery.min.js"></script><link href="pt_predicoes_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="pt_predicoes_files/datatables-binding-0.12/datatables.js"></script><link href="pt_predicoes_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="pt_predicoes_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="pt_predicoes_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="pt_predicoes_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet">
+<script src="pt_predicoes_files/crosstalk-1.0.0/js/crosstalk.min.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Evolução do número de casos confirmados de covid-19 no Brasil</h1>
+      <h1>Predição do número de casos de covid-19 no Brasil</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/paternogbc/covid19br/blob/master/vignettes/tendencia_atual.Rmd"><code>vignettes/tendencia_atual.Rmd</code></a></small>
-      <div class="hidden name"><code>tendencia_atual.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/paternogbc/covid19br/blob/master/vignettes/pt_predicoes.Rmd"><code>vignettes/pt_predicoes.Rmd</code></a></small>
+      <div class="hidden name"><code>pt_predicoes.Rmd</code></div>
 
     </div>
 
@@ -111,7 +123,7 @@
 <h1 class="hasAnchor">
 <a href="#s%C3%ADntese-dos-dados-oficiais" class="anchor"></a>Síntese dos dados oficiais</h1>
 <ul>
-<li>Número de casos suspeitos: <strong>1.127810^{4}</strong>
+<li>Número de casos suspeitos: <strong>1.127810^{4}</strong><br>
 </li>
 <li>Número de casos confirmados: <strong>428</strong><br>
 </li>
@@ -121,26 +133,16 @@
 </li>
 </ul>
 </div>
-<div id="casos-confirmados-de-covid-19-no-brasil" class="section level1">
+<div id="predição-do-número-de-casos-de-covid-19-no-brasil" class="section level1">
 <h1 class="hasAnchor">
-<a href="#casos-confirmados-de-covid-19-no-brasil" class="anchor"></a>Casos confirmados de covid-19 no Brasil</h1>
-<p><img src="tendencia_atual_files/figure-html/unnamed-chunk-2-1.png" width="960"></p>
+<a href="#predi%C3%A7%C3%A3o-do-n%C3%BAmero-de-casos-de-covid-19-no-brasil" class="anchor"></a>Predição do número de casos de covid-19 no Brasil</h1>
+<p><img src="pt_predicoes_files/figure-html/unnamed-chunk-3-1.png" width="960"></p>
 </div>
-<div id="taxa-de-crescimento-do-número-de-casos" class="section level1">
+<div id="valores-brutos" class="section level1">
 <h1 class="hasAnchor">
-<a href="#taxa-de-crescimento-do-n%C3%BAmero-de-casos" class="anchor"></a>Taxa de crescimento do número de casos</h1>
-<p><img src="tendencia_atual_files/figure-html/unnamed-chunk-3-1.png" width="960"></p>
-</div>
-<div id="número-de-casos-por-estado" class="section level1">
-<h1 class="hasAnchor">
-<a href="#n%C3%BAmero-de-casos-por-estado" class="anchor"></a>Número de casos por estado</h1>
-<p><img src="tendencia_atual_files/figure-html/unnamed-chunk-4-1.png" width="960"><img src="tendencia_atual_files/figure-html/unnamed-chunk-4-2.png" width="960"></p>
-</div>
-<div id="raw-data" class="section level1">
-<h1 class="hasAnchor">
-<a href="#raw-data" class="anchor"></a>Raw data</h1>
-<div id="htmlwidget-d7b129db8a28bf1c7903" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d7b129db8a28bf1c7903">{"x":{"filter":"none","data":[["Acre","Alagoas","Amapá","Amazonas","Bahia","Ceará","Distrito Federal","Espírito Santo","Goiás","Maranhão","Mato Grosso","Mato Grosso do Sul","Minas Gerais","Pará","Paraíba","Paraná","Pernambuco","Piauí","Rio de Janeiro","Rio Grande do Norte","Rio Grande do Sul","Rondônia","Roraima","Santa Catarina","São Paulo","Sergipe","Tocantins"],[12,43,15,18,573,493,327,71,353,125,45,93,925,43,85,400,89,12,1254,108,416,61,9,346,5334,15,13],[0,1,0,1,3,9,26,9,8,0,0,7,15,0,0,13,16,0,45,1,19,0,0,10,240,5,0],[0,22,0,26,36,89,107,21,55,13,8,26,104,23,11,119,23,2,148,22,330,2,0,47,596,11,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Estado<\/th>\n      <th>Casos suspeitos<\/th>\n      <th>Casos confirmados<\/th>\n      <th>Casos descartados<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":30,"columnDefs":[{"className":"dt-right","targets":[1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,25,30,50,100]}},"evals":[],"jsHooks":[]}</script>
+<a href="#valores-brutos" class="anchor"></a>Valores brutos</h1>
+<div id="htmlwidget-7982c94c83af0b25124a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7982c94c83af0b25124a">{"x":{"filter":"none","data":[["2020-03-10","2020-03-11","2020-03-12","2020-03-13","2020-03-14","2020-03-15","2020-03-16","2020-03-17","2020-03-18","2020-03-19","2020-03-20","2020-03-21","2020-03-22","2020-03-23","2020-03-24","2020-03-25","2020-03-26"],[39,52,68,90,118,156,205,270,356,468,617,812,1070,1409,1856,2445,3220],[32,42,54,69,89,114,147,188,242,310,397,509,653,836,1072,1373,1759],[48,64,87,117,157,212,287,387,524,708,958,1296,1754,2374,3214,4352,5894]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Data<\/th>\n      <th>Esperado<\/th>\n      <th>Mínimo<\/th>\n      <th>Máximo<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":30,"columnDefs":[{"className":"dt-right","targets":[1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,25,30,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
   </div>
 
@@ -151,10 +153,8 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#s%C3%ADntese-dos-dados-oficiais">Síntese dos dados oficiais</a></li>
-      <li><a href="#casos-confirmados-de-covid-19-no-brasil">Casos confirmados de covid-19 no Brasil</a></li>
-      <li><a href="#taxa-de-crescimento-do-n%C3%BAmero-de-casos">Taxa de crescimento do número de casos</a></li>
-      <li><a href="#n%C3%BAmero-de-casos-por-estado">Número de casos por estado</a></li>
-      <li><a href="#raw-data">Raw data</a></li>
+      <li><a href="#predi%C3%A7%C3%A3o-do-n%C3%BAmero-de-casos-de-covid-19-no-brasil">Predição do número de casos de covid-19 no Brasil</a></li>
+      <li><a href="#valores-brutos">Valores brutos</a></li>
       </ul>
 </div>
       </div>

@@ -2,8 +2,9 @@ pandoc: 2.3.1
 pkgdown: 1.4.1
 pkgdown_sha: ~
 articles:
-  current_trends: current_trends.html
-  distrib_map_pt: distrib_map_pt.html
-  predicoes: predicoes.html
-  tendencia_atual: tendencia_atual.html
+  en_current_trends: en_current_trends.html
+  intro: intro.html
+  pt_distrib_map: pt_distrib_map.html
+  pt_predicoes: pt_predicoes.html
+  pt_tendencia_atual: pt_tendencia_atual.html
 

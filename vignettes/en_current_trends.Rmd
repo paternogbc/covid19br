@@ -20,15 +20,15 @@ library(knitr)
 library(DT)
 
 # Data for comparisons:
-used_date  <- max(covid_br_all$date)
+used_date  <- max(covid_br$date)
 
-n_sus      <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
-n_des      <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
-n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
-n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
+n_sus      <- covid_br %>% filter(date == used_date) %>% pull(suspected_cases)
+n_des      <- covid_br %>% filter(date == used_date) %>% pull(not_confirmed_cases)
+n_total    <- covid_br %>% filter(date == used_date) %>% pull(confirmed_cases)
+n_death    <- covid_br %>% filter(date == used_date) %>% pull(deaths)
 
 # raw data
-tab_stat <- covid_br_states %>% filter(date == used_date) %>% 
+tab_stat <- covid_regions %>% filter(date == used_date) %>% 
   dplyr::select(Estado = state, "Casos suspeitos" = suspected_cases, 
          "Casos confirmados" = confirmed_cases,
          "Casos descartados" = not_confirmed_cases) %>% 
@@ -97,17 +97,17 @@ __The data used in the following analysis were updated on :`r used_date`__
 library(covid19br)
 # calculate doubling time:
 
-mod10    <- lm(log10(confirmed_cases + 1) ~ date, covid_br_all)
-modlog   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all)
+mod10    <- lm(log10(confirmed_cases + 1) ~ date, covid_br)
+modlog   <- lm(log(confirmed_cases + 1) ~ date, covid_br)
 dtime    <- log(2)/modlog$coef[2]   # time to double
 dtime10  <- 1/mod10$coef[2]         # time to x 10
 
 # Predictions (next 10 days)
-mod15   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all %>% filter(date <= "2020-03-15"))
+mod15   <- lm(log(confirmed_cases + 1) ~ date, covid_br %>% filter(date <= "2020-03-15"))
 
 future <- predic_covid(mod15, date_interval = seq(as.Date("2020-03-10"), as.Date("2020-03-20"), 1))
 
-gpred <- plot_future(obs = covid_br_all, pred = future, pred_lab = "Predicted", obs_lab = "Observed",
+gpred <- plot_future(obs = covid_br, pred = future, pred_lab = "Predicted", obs_lab = "Observed",
                      xlab = "Date", ylab = "Confirmed cases of covid-19",
                      title = "covid-19 | Brazil", 
                      subtitle = "Corona virus spreads exponentially",
@@ -115,7 +115,7 @@ gpred <- plot_future(obs = covid_br_all, pred = future, pred_lab = "Predicted", 
 
 # Plots------
 # Curva de crescimento no Brasil
-g2 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date, label = confirmed_cases)) +
+g2 <- ggplot(covid_br, aes(y = confirmed_cases, x = date, label = confirmed_cases)) +
   geom_area(fill = "tomato", alpha = 0.2) +
   geom_line(color = "tomato", size = 3) +
   geom_label() +
@@ -137,7 +137,7 @@ g2 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date, label = confirmed_
 
 
   # Tempo para dobrar o número de casos
-g3 <- ggplot(covid_br_all, aes(y = confirmed_cases + 1, x = date)) +
+g3 <- ggplot(covid_br, aes(y = confirmed_cases + 1, x = date)) +
   geom_point(color = "black", size = 5, shape = 21, fill = "tomato", alpha = .75) +
   scale_y_continuous(trans = "log10") +
   geom_smooth(method = lm, color = "tomato") +
@@ -164,7 +164,7 @@ gpred
 
 ```{r echo=FALSE, fig.width=8, fig.height=10}
 # Compare between states
-ggplot(covid_br_states %>% filter(date == used_date), 
+ggplot(covid_states %>% filter(date == used_date), 
        aes(y = confirmed_cases, x = reorder(state, confirmed_cases), label = confirmed_cases)) +
   geom_col(fill = "tomato", color = "red", alpha  = .3, size = 0.5) +
   geom_label() +

@@ -10,6 +10,8 @@ Updated data on the number of cases of corona virus in Brasil.
 \details{
 This package is build to keep an updated repository with the oficial data on corona virus for Brasil.
 The source of data source is: Ministério da Saúde (https://saude.gov.br/).
+
+In this package I use the r-package \code{coronabr} to download the raw data from Ministério da Saúde (see reference bewlo).
 }
 \section{Bug reports}{
 
@@ -20,10 +22,13 @@ The source of data source is: Ministério da Saúde (https://saude.gov.br/).
 \section{How to contribute?}{
 
 
-You can find instructions on how to contribute to \bold{teads} at
+You can find instructions on how to contribute to \bold{covid19br} at
 this link: \url{https://github.com/paternogbc/covid19br}
 }
 
+\references{
+Sara Mortara and Andrea Sánchez-Tapia (2020). coronabr: Download de dados do coronavírus. R package version 0.1.0.
+}
 \author{
 Gustavo Brant Paterno
 }

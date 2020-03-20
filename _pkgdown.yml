@@ -5,3 +5,33 @@ authors:
 template:
   params:
     bootswatch: flatly
+
+navbar:
+  type: default
+  left:
+  - icon: fas fa-home fa-lg
+    href: index.html
+
+  - text: Tutorial
+    href: articles/intro.html
+
+  - text: Referência
+    href: reference/index.html
+
+  - text: Análises (pt)
+    menu:
+    - text: Evolução do número de casos
+      href: articles/pt_tendencia_atual.html
+    - text: Distribuição geográfica dos casos
+      href: articles/pt_distrib_map.html
+    - text: Predição do número de casos
+      href: articles/pt_predicoes.html
+
+  - text: Analyses (en)
+    menu:
+    - text: Current trends for covid-19 in Brazil
+      href: articles/en_current_trends.html
+
+  right:
+  - icon: fa-github fa-lg
+    href: https://github.com/paternogbc/covid19br

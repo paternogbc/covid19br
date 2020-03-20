@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Brazilian map with states — states • covid19br</title>
+<title>Historical number of covid-19 cases for states in Brazil. — covid_states • covid19br</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Brazilian map with states — states" />
-<meta property="og:description" content="Brazilian map with states" />
+<meta property="og:title" content="Historical number of covid-19 cases for states in Brazil. — covid_states" />
+<meta property="og:description" content="Historical number of covid-19 cases for states in Brazil." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -82,26 +82,38 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/intro.html">Tutorial</a>
+</li>
+<li>
+  <a href="../reference/index.html">Referência</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Análises (pt)
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/current_trends.html">Current trends for covid-19 in Brazil</a>
+      <a href="../articles/pt_tendencia_atual.html">Evolução do número de casos</a>
     </li>
     <li>
-      <a href="../articles/distrib_map_pt.html">Distribuição geográfica dos casos de covid-19 no Brasil</a>
+      <a href="../articles/pt_distrib_map.html">Distribuição geográfica dos casos</a>
     </li>
     <li>
-      <a href="../articles/predicoes.html">Predição do número de casos de covid-19 no Brasil</a>
+      <a href="../articles/pt_predicoes.html">Predição do número de casos</a>
     </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Analyses (en)
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/tendencia_atual.html">Evolução do número de casos confirmados de covid-19 no Brasil</a>
+      <a href="../articles/en_current_trends.html">Current trends for covid-19 in Brazil</a>
     </li>
   </ul>
 </li>
@@ -109,7 +121,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/paternogbc/covid19br">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -126,26 +138,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Brazilian map with states</h1>
+    <h1>Historical number of covid-19 cases for states in Brazil.</h1>
     <small class="dont-index">Source: <a href='https://github.com/paternogbc/covid19br/blob/master/R/document_data.R'><code>R/document_data.R</code></a></small>
-    <div class="hidden name"><code>states.Rd</code></div>
+    <div class="hidden name"><code>covid_states.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Brazilian map with states</p>
+    <p>Historical number of covid-19 cases for states in Brazil.</p>
     </div>
 
-    <pre class="usage"><span class='no'>states</span></pre>
+    <pre class="usage"><span class='no'>covid_states</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>Simple feature collection with 27 features and 5 fieldS</p>
+    <p>A data frame with nine variables:</p><ul>
+<li><p><strong>region</strong> The region of Brazil</p></li>
+<li><p><strong>state</strong> The name of the state</p></li>
+<li><p><strong>state_ID</strong> the code of the state</p></li>
+<li><p><strong>state_uid</strong> the uid code of the state</p></li>
+<li><p><strong>suspected_cases</strong> The official number of suspected cases on a given date</p></li>
+<li><p><strong>confirmed_cases</strong> The official number of confirmed cases on a given date</p></li>
+<li><p><strong>not_confirmed_cases</strong> The official number of discarded cases on a given date</p></li>
+<li><p><strong>deaths</strong> The official number of deaths by covid-19</p></li>
+<li><p><strong>date</strong> The date (yyyy-mm-dd)</p></li>
+</ul>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>generated with
-library(geobr)
-states &lt;- read_state(year=2018)</p>
+    <p>Data downloaded from: <a href='http://plataforma.saude.gov.br/novocoronavirus/'>http://plataforma.saude.gov.br/novocoronavirus/</a> with the
+package <code>coronabr</code>: <a href='https://github.com/liibre/coronabr'>https://github.com/liibre/coronabr</a>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

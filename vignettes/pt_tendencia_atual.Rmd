@@ -22,18 +22,19 @@ library(geobr)
 library(cowplot)
 library(knitr)
 library(DT)
+library(ggrepel)
 
 # Data for comparisons:
-used_date  <- max(covid_br_all$date)
+used_date  <- max(covid_br$date)
 
-n_sus      <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
-n_des      <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
-n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
-n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
+n_sus      <- covid_br %>% filter(date == used_date) %>% pull(suspected_cases)
+n_des      <- covid_br %>% filter(date == used_date) %>% pull(not_confirmed_cases)
+n_total    <- covid_br %>% filter(date == used_date) %>% pull(confirmed_cases)
+n_death    <- covid_br %>% filter(date == used_date) %>% pull(deaths)
 
 
 # raw data
-tab_stat <- covid_br_states %>% filter(date == used_date) %>% 
+tab_stat <- covid_states %>% filter(date == used_date) %>% 
   dplyr::select(Estado = state, "Casos suspeitos" = suspected_cases, 
          "Casos confirmados" = confirmed_cases,
          "Casos descartados" = not_confirmed_cases) %>% 
@@ -58,14 +59,14 @@ não se pode concluir uma relação direta destes números com o número real de
 library(covid19br)
 
 # calculate doubling time:
-mod10    <- lm(log10(confirmed_cases + 1) ~ date, covid_br_all)
-modlog   <- lm(log(confirmed_cases + 1) ~ date, covid_br_all)
+mod10    <- lm(log10(confirmed_cases + 1) ~ date, covid_br)
+modlog   <- lm(log(confirmed_cases + 1) ~ date, covid_br)
 dtime    <- log(2)/modlog$coef[2]   # time to double
 dtime10  <- 1/mod10$coef[2]         # time to x 10
 
 # Plots------
 # Curva de crescimento no Brasil
-g2 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date, label = confirmed_cases)) +
+g2 <- ggplot(covid_br, aes(y = confirmed_cases, x = date, label = confirmed_cases)) +
   geom_area(fill = "tomato", alpha = 0.2) +
   geom_line(color = "tomato", size = 3) +
   geom_label() +
@@ -89,8 +90,8 @@ g2 <- ggplot(covid_br_all, aes(y = confirmed_cases, x = date, label = confirmed_
 # Taxa de crescimento do número de casos
 
 ```{r}
-  # Tempo para dobrar o número de casos
-g3 <- ggplot(covid_br_all, aes(y = confirmed_cases + 1, x = date)) +
+# Tempo para dobrar o número de casos
+g3 <- ggplot(covid_br, aes(y = confirmed_cases + 1, x = date)) +
   geom_point(color = "black", size = 5, shape = 21, fill = "tomato", alpha = .75) +
   scale_y_continuous(trans = "log10") +
   geom_smooth(method = lm, color = "tomato") +
@@ -110,29 +111,27 @@ scale_x_date(date_breaks = "3 days", date_labels =  "%d %b") +
 # Número de casos por estado
 
 ```{r}
-covid_br_states %>% filter(date == used_date) %>% 
+covid_states %>% filter(date == used_date) %>% 
   arrange(desc(confirmed_cases)) %>% 
   ungroup() %>% 
   slice(1:5) %>% 
   pull(state) %>% as.character() -> top_state
 
-ggplot(data = covid_br_all,
-       aes(y = confirmed_cases + 1, x = date, color = "Brasil"), size = 5, alpha = .75) +
-  geom_point() +
-  geom_line() +
-  scale_color_discrete(name = "") +
-  geom_line(data = covid_br_states  %>% filter(state %in% top_state), 
-            aes(y = confirmed_cases, x = date, color = state)) +
+ggplot() +
+  geom_line(data = covid_states  %>% filter(state %in% top_state), 
+            aes(y = confirmed_cases, x = date, color = state), size = 1.5, alpha = .75) +
+  geom_point(data = covid_states  %>% filter(state %in% top_state & date == used_date), 
+             aes(y = confirmed_cases, x = date, color = state), size = 4, alpha = .75) +
   theme_cowplot(font_size = 20) +
+  scale_color_viridis_d(name = "", option = "D", direction = -1) +
   labs(y = "Casos confirmados (covid-19)",
        x = "Data",
        title = "covid-19 | Brasil",
        subtitle = "Crescimento do número de casos por estado") +
-  theme(legend.position = c(.1, .8),
-        legend.text = element_text(size = 12))
+  theme(legend.position = NULL) 
 
 # Compare between states
-ggplot(covid_br_states %>% filter(date == used_date), 
+ggplot(covid_states %>% filter(date == used_date), 
        aes(y = confirmed_cases, x = reorder(state, confirmed_cases), label = confirmed_cases)) +
   geom_col(fill = "tomato", color = "red", alpha  = .3, size = 0.5) +
   geom_label() +

@@ -24,15 +24,15 @@ library(knitr)
 library(DT)
 
 # Data for comparisons:
-used_date  <- max(covid_br_all$date)
+used_date  <- max(covid_br$date)
 
-n_sus      <- covid_br_all %>% filter(date == used_date) %>% pull(suspected_cases)
-n_des      <- covid_br_all %>% filter(date == used_date) %>% pull(not_confirmed_cases)
-n_total    <- covid_br_all %>% filter(date == used_date) %>% pull(confirmed_cases)
-n_death    <- covid_br_all %>% filter(date == used_date) %>% pull(deaths)
+n_sus      <- covid_br %>% filter(date == used_date) %>% pull(suspected_cases)
+n_des      <- covid_br %>% filter(date == used_date) %>% pull(not_confirmed_cases)
+n_total    <- covid_br %>% filter(date == used_date) %>% pull(confirmed_cases)
+n_death    <- covid_br %>% filter(date == used_date) %>% pull(deaths)
 
 # raw data
-tab_stat <- covid_br_states %>% filter(date == used_date) %>% 
+tab_stat <- covid_states %>% filter(date == used_date) %>% 
   dplyr::select(Estado = state, "Casos suspeitos" = suspected_cases, 
          "Casos confirmados" = confirmed_cases,
          "Casos descartados" = not_confirmed_cases) %>% 
@@ -54,11 +54,11 @@ não se pode concluir uma relação direta destes números com o número real de
 # Distribuição de casos de covid-19 no Brasil
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-covid <- covid_br_states %>% filter(date == used_date)
+covid <- covid_states %>% filter(date == used_date)
 covid$confir_cat <- cut(covid$confirmed_cases, breaks = c(-Inf, 0, 5, 10, 100, Inf), include.lowest = TRUE,
                         c("zero","entre 1 e 5", "entre 6 e 10", "entre 11 e 100", "maior que 100"))
 
-states2 <-left_join(states, covid, by = c("abbrev_state" = "state_ID"))
+states2 <-left_join(map_states, covid, by = c("abbrev_state" = "state_ID"))
 
 colors <- c("gray", '#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026')
 
@@ -82,20 +82,20 @@ g1
 ```{r}
 # Plot prediction maps
 pop <- info_states %>% mutate(state_uid = as.factor(state_uid))
-d2  <- left_join(x = covid_br_states, y = pop) %>% filter(date == used_date)
+d2  <- left_join(x = covid_states, y = pop) %>% filter(date == used_date)
 
-d2  %>% mutate(cases_p_100k = round((confirmed_cases / pop) * 100000, digits = 3),
+d2  %>% mutate(cases_p_1m = round((confirmed_cases / pop) * 10^6, digits = 3),
                cases_p_k2  = confirmed_cases / area,
-               cases_p_hab_k2 = cases_p_100k/area) -> d3
+               cases_p_hab_k2 = cases_p_1m/area) -> d3
 
-states2 <-left_join(states, d3 %>% filter(date == used_date), by = c("abbrev_state" = "state_ID"))
+states2 <-left_join(map_states, d3 %>% filter(date == used_date), by = c("abbrev_state" = "state_ID"))
 
 # Plot map
 g2 <- ggplot() +
-  geom_sf(data = states2, aes(fill = cases_p_100k), color= "black", size=.15) +
+  geom_sf(data = states2, aes(fill = cases_p_1m), color= "black", size=.15) +
   theme_minimal(base_size = 16) +
   labs(
-       title = paste("Número de casos confirmados por 100 mil habitantes"),
+       title = paste("Casos confirmados por 1 milhão de habitantes"),
        caption = paste("", used_date)) +
   theme(plot.title = element_text(size = 18),
     plot.subtitle = element_text(size = 16),
@@ -107,7 +107,7 @@ g2
 # Dados brutos por estado
 
 ```{r}
-d3 %>% select(Estado = state, "Casos confirmados" = confirmed_cases, "Casos por 100 mil habitantes" = cases_p_100k) %>% 
+d3 %>% select(Estado = state, "Casos confirmados" = confirmed_cases, "Casos por 100 mil habitantes" = cases_p_1m) %>% 
   arrange(desc(`Casos confirmados`)) %>% 
   datatable(
     rownames = FALSE, options = list(pageLength = 30))
