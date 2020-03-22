@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 library(covid19br)
 ```
 
+> Os dados estão desatualizados porque a plataforma [IVIS](http://plataforma.saude.gov.br/novocoronavirus/) encontra-se em manutenção. 
+
 ## Instalação do pacote `covid19br`
 
 Você pode instalar a versão de desenvolvimento do pacote `covid19br` no Github:
@@ -30,9 +32,10 @@ devtools::install_github(repo = "paternogbc/covid19br")
 
 O pacote `covid19br` disponibiliza três bancos de dados com o histórico do número de casos de corona vírus no Brasil (covid-19):
 
-1. __covid_br:__ O número de casos para todo o Brasil   
-2. __covid_regions:__ O número de casos por cada região do Brasil  
-3. __covid_states:__ O número de casos para cada estado do Brasil  
+1. __covid_br:__ O número de casos de covid-19 para todo o Brasil.     
+2. __covid_regions:__ O número de casos de covid-19 para cada região do Brasil.    
+3. __covid_states:__ O número de casos de covid-19 para cada estado do Brasil.  
+4. __covid_global:__ O número de casos de covid-19 para todos os países do mundo.  
 
 Para acessar os dados diretamente no seu computador. Após instalar, carregue o pacote `covid19br` dentro do Programa R. Pronto, você já tem acesso aos três bancos de dados atualizados disponíveis como objetos no seu ambiente de R (environment). Veja como é fácil acessar:  
 
@@ -45,9 +48,43 @@ head(covid_states)
 
 head(covid_regions)
 
+head(covid_global)
 ```
 
-## Faça seus gráficos e análises
+## Compare o Brasil com outros países
+
+```{r}
+# Carregue os pacotes necessários
+library(dplyr) 
+library(ggplot2) 
+library(covid19br)
+
+# Filter os países que deseja
+paises <- c("Brazil", "Argentina", "Peru", "Colombia")
+
+ggplot(covid_global %>% filter(state %in% paises & date > "2020-03-01"),
+       aes(y = confirmed_cases, x = date, color = state)) +
+  geom_line() +
+  theme_classic(base_size = 20)
+
+```
+
+
+## Veja a tendência de casos no Brasil
+
+```{r}
+# Carregue os pacotes necessários
+library(dplyr) 
+library(ggplot2) 
+library(covid19br)
+
+# Faça um gráfico
+ggplot(covid_br, aes(y = confirmed_cases, x = date)) +
+  geom_line(color = "red", size = 2) +
+  theme_classic(base_size = 18)
+```
+
+## Compare os estados do Brasil
 
 ```{r}
 # Carregue os pacotes necessários
@@ -69,20 +106,6 @@ ggplot(top5, aes(y = confirmed_cases, x = state)) +
   geom_col(fill = "tomato") +
   theme_classic(base_size = 20) +
   coord_flip()
-```
-
-## Veja a tendência de casos no Brasil
-
-```{r}
-# Carregue os pacotes necessários
-library(dplyr) 
-library(ggplot2) 
-library(covid19br)
-
-# Faça um gráfico
-ggplot(covid_br, aes(y = confirmed_cases, x = date)) +
-  geom_line(color = "red", size = 2) +
-  theme_classic(base_size = 18)
 ```
 
 ## Veja a tendência de casos para cada região

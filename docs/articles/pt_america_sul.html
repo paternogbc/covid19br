@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Distribuição geográfica dos casos de covid-19 no Brasil • covid19br</title>
+<title>Taxa de crescimento entre as regiões • covid19br</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Distribuição geográfica dos casos de covid-19 no Brasil">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Taxa de crescimento entre as regiões">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -103,57 +103,32 @@
 
       
 
-      </header><script src="pt_distrib_map_files/htmlwidgets-1.5.1/htmlwidgets.js"></script><script src="pt_distrib_map_files/jquery-1.12.4/jquery.min.js"></script><link href="pt_distrib_map_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="pt_distrib_map_files/datatables-binding-0.12/datatables.js"></script><link href="pt_distrib_map_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="pt_distrib_map_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="pt_distrib_map_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="pt_distrib_map_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet">
-<script src="pt_distrib_map_files/crosstalk-1.0.0/js/crosstalk.min.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Distribuição geográfica dos casos de covid-19 no Brasil</h1>
+      <h1>Taxa de crescimento entre as regiões</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/paternogbc/covid19br/blob/master/vignettes/pt_distrib_map.Rmd"><code>vignettes/pt_distrib_map.Rmd</code></a></small>
-      <div class="hidden name"><code>pt_distrib_map.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/paternogbc/covid19br/blob/master/vignettes/pt_america_sul.Rmd"><code>vignettes/pt_america_sul.Rmd</code></a></small>
+      <div class="hidden name"><code>pt_america_sul.Rmd</code></div>
 
     </div>
 
     
     
-<blockquote>
-<p><strong>NOTAS:</strong><br>
-* As análises abaixo representam apenas o número de casos <strong>confirmados pelo Ministério da Saúde</strong>, portanto, não se pode concluir uma relação direta destes números com o número real de pessoas infectadas por covid-19.<br>
-* Os resultados apresentados abaixo foram atualizados na data: <strong>2020-03-18</strong></p>
-</blockquote>
-<div id="síntese-dos-dados-oficiais" class="section level1">
+<div id="como-está-o-crescimento-de-casos-confirmados-na-américa-do-suk" class="section level1">
 <h1 class="hasAnchor">
-<a href="#s%C3%ADntese-dos-dados-oficiais" class="anchor"></a>Síntese dos dados oficiais</h1>
-<ul>
-<li>Número de casos suspeitos: <strong>1.127810^{4}</strong><br>
-</li>
-<li>Número de casos confirmados: <strong>428</strong><br>
-</li>
-<li>Número de casos descartados: <strong>1841</strong><br>
-</li>
-<li>Número de mortes por corona vírus: <strong>4</strong>
-</li>
-</ul>
+<a href="#como-est%C3%A1-o-crescimento-de-casos-confirmados-na-am%C3%A9rica-do-suk" class="anchor"></a>Como está o crescimento de casos confirmados na América do Suk?</h1>
+<div id="números-absolutos" class="section level2">
+<h2 class="hasAnchor">
+<a href="#n%C3%BAmeros-absolutos" class="anchor"></a>Números absolutos</h2>
+<p><img src="pt_america_sul_files/figure-html/unnamed-chunk-2-1.png" width="960"></p>
 </div>
-<div id="distribuição-de-casos-de-covid-19-no-brasil" class="section level1">
-<h1 class="hasAnchor">
-<a href="#distribui%C3%A7%C3%A3o-de-casos-de-covid-19-no-brasil" class="anchor"></a>Distribuição de casos de covid-19 no Brasil</h1>
-<p><img src="pt_distrib_map_files/figure-html/unnamed-chunk-2-1.png" width="960"></p>
+<div id="em-escala-logarítmica-log10" class="section level2">
+<h2 class="hasAnchor">
+<a href="#em-escala-logar%C3%ADtmica-log10" class="anchor"></a>Em escala logarítmica (log10)</h2>
+<p><img src="pt_america_sul_files/figure-html/unnamed-chunk-3-1.png" width="960"></p>
 </div>
-<div id="controlando-pelo-tamanho-da-população" class="section level1">
-<h1 class="hasAnchor">
-<a href="#controlando-pelo-tamanho-da-popula%C3%A7%C3%A3o" class="anchor"></a>Controlando pelo tamanho da população</h1>
-<p><img src="pt_distrib_map_files/figure-html/unnamed-chunk-3-1.png" width="960"></p>
-</div>
-<div id="dados-brutos-por-estado" class="section level1">
-<h1 class="hasAnchor">
-<a href="#dados-brutos-por-estado" class="anchor"></a>Dados brutos por estado</h1>
-<div id="htmlwidget-32ff497ebe44d30c519a" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-32ff497ebe44d30c519a">{"x":{"filter":"none","data":[["São Paulo","Rio de Janeiro","Distrito Federal","Rio Grande do Sul","Pernambuco","Minas Gerais","Paraná","Santa Catarina","Ceará","Espírito Santo","Goiás","Mato Grosso do Sul","Sergipe","Bahia","Amazonas","Rio Grande do Norte","Alagoas","Rondônia","Acre","Roraima","Pará","Amapá","Tocantins","Maranhão","Piauí","Paraíba","Mato Grosso"],[240,45,26,19,16,15,13,10,9,9,8,7,5,3,1,1,1,0,0,0,0,0,0,0,0,0,0],[5.227,2.606,8.623,1.67,1.674,0.709,1.137,1.396,0.986,2.24,1.14,2.519,2.175,0.202,0.241,0.285,0.3,0,0,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Estado<\/th>\n      <th>Casos confirmados<\/th>\n      <th>Casos por 100 mil habitantes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":30,"columnDefs":[{"className":"dt-right","targets":[1,2]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,25,30,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
   </div>
 
@@ -163,10 +138,12 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#s%C3%ADntese-dos-dados-oficiais">Síntese dos dados oficiais</a></li>
-      <li><a href="#distribui%C3%A7%C3%A3o-de-casos-de-covid-19-no-brasil">Distribuição de casos de covid-19 no Brasil</a></li>
-      <li><a href="#controlando-pelo-tamanho-da-popula%C3%A7%C3%A3o">Controlando pelo tamanho da população</a></li>
-      <li><a href="#dados-brutos-por-estado">Dados brutos por estado</a></li>
+<li>
+<a href="#como-est%C3%A1-o-crescimento-de-casos-confirmados-na-am%C3%A9rica-do-suk">Como está o crescimento de casos confirmados na América do Suk?</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#n%C3%BAmeros-absolutos">Números absolutos</a></li>
+      <li><a href="#em-escala-logar%C3%ADtmica-log10">Em escala logarítmica (log10)</a></li>
+      </ul>
+</li>
       </ul>
 </div>
       </div>

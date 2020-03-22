@@ -118,3 +118,14 @@ NULL
 #' \item{\strong{density}} {State density in people per km2}
 #' }
 "info_states"
+
+#' Historical number of covid-19 cases for the world.
+#'
+#' @format A data frame with four variables:
+#' \itemize{
+#' \item{\strong{state}} {The name of the state (country)}
+#' \item{\strong{pop}} {Total number of confirmed covid-19 cases}
+#' \item{\strong{pop}} {Total number of confirmed covid-19 deaths}
+#' \item{\strong{date}} {The date (yyyy-mm-dd)}
+#' }
+"covid_global"

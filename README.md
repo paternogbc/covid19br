@@ -89,11 +89,14 @@ head(covid_regions)
 
 ## Raw data
 
-The raw data are downloaded via the package
-[`coronabr`](https://github.com/paternogbc/coronabr)\[1\] which provides
-an excellent function to download the raw data directly from the
-platform [IVIS](http://platform.saude.gov.br/novocoronavirus/) of the
-Ministry of Health.
+  - The raw data are downloaded via the package
+    [`coronabr`](https://github.com/liibre/coronabr)\[1\] which provides
+    an excellent function to download the raw data directly from the
+    platform [IVIS](http://platform.saude.gov.br/novocoronavirus/) of
+    the Ministry of Health.
+
+  - Data on the global number of cases were downloaded from [Our World
+    in Data](https://ourworldindata.org/coronavirus-source-data).
 
 -----
 

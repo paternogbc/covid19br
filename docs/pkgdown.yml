@@ -4,6 +4,7 @@ pkgdown_sha: ~
 articles:
   en_current_trends: en_current_trends.html
   intro: intro.html
+  pt_america_sul: pt_america_sul.html
   pt_distrib_map: pt_distrib_map.html
   pt_predicoes: pt_predicoes.html
   pt_regions: pt_regions.html

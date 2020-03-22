@@ -1,0 +1,95 @@
+---
+title: "Taxa de crescimento entre as regiões"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Taxa de crescimento entre as regiões}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo=FALSE, 
+  warning=FALSE, 
+  message=FALSE, 
+  fig.height=8, 
+  fig.width=10
+)
+```
+
+```{r setup, message=FALSE, warning=FALSE, echo=FALSE}
+library(covid19br)
+library(tidyverse)
+library(covid19br)
+library(geobr)
+library(cowplot)
+library(knitr)
+library(DT)
+```
+
+# Como está o crescimento de casos confirmados na América do Suk?
+
+## Números absolutos
+
+```{r}
+library(tidyverse)
+library(ggrepel)
+library(covid19br)
+# Filter os países que deseja
+paises <- c("Brazil", "Peru", "Argentina", "Colombia", "Equador", "Bolivia", "Venezuela",
+            "Paraguay", "Ecuador", "Uruguay", "Chile", "Guyana", "Suriname")
+
+max_date <- covid_global$date %>% max()
+
+g1 <-
+  ggplot(covid_global %>% filter(state %in% paises & date > "2020-02-23"),
+       aes(y = confirmed_cases, x = date, color = state)) +
+  geom_line(size = 2, alpha = .5, show.legend = FALSE) +
+  geom_point(show.legend = FALSE, size = 1, alpha = .5) +
+  geom_label_repel(data = covid_global %>% filter(state %in% paises & date == max_date),
+                   aes(y = confirmed_cases, x = date, color = state, label = state),
+                   show.legend = FALSE) +
+  #scale_y_log10(labels = c("1", "100", "1 mil", "10 mil", "100 mil"), breaks = c(1, 100, 1000, 10000, 100000)) +
+  scale_x_date(date_breaks = "3 days", date_labels =  "%d %b") +
+  theme_classic(base_size = 18) +
+  labs(y = "Casos confirmados (covid-19) [log10]",
+       x = "Data",
+       title = "covid-19 | América do Sul",
+       caption = "Fonte: Our World in Data | Atualizado: 2020-03-23")
+g1
+```
+
+
+## Em escala logarítmica (log10)
+
+```{r}
+library(tidyverse)
+library(ggrepel)
+library(covid19br)
+# Filter os países que deseja
+paises <- c("Brazil", "Peru", "Argentina", "Colombia", "Equador", "Bolivia", "Venezuela",
+            "Paraguay", "Ecuador", "Uruguay", "Chile", "Guyana", "Suriname")
+
+max_date <- covid_global$date %>% max()
+
+g2 <-
+  ggplot(covid_global %>% filter(state %in% paises & date > "2020-02-23"),
+       aes(y = confirmed_cases, x = date, color = state)) +
+  geom_line(size = 2, alpha = .5, show.legend = FALSE) +
+  geom_point(show.legend = FALSE, size = 1, alpha = .5) +
+  geom_label_repel(data = covid_global %>% filter(state %in% paises & date == max_date),
+                   aes(y = confirmed_cases, x = date, color = state, label = state),
+                   show.legend = FALSE) +
+  scale_y_log10(labels = c("1", "100", "1 mil", "10 mil", "100 mil"), breaks = c(1, 100, 1000, 10000, 100000)) +
+  scale_x_date(date_breaks = "3 days", date_labels =  "%d %b") +
+  theme_classic(base_size = 18) +
+  labs(y = "Casos confirmados (covid-19) [log10]",
+       x = "Data",
+       title = "covid-19 | América do Sul",
+       caption = "Fonte: Our World in Data | Atualizado: 2020-03-23")
+g2
+
+```
+
