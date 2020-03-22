@@ -29,7 +29,11 @@ library(knitr)
 library(DT)
 ```
 
+<<<<<<< HEAD
 # Como está o crescimento de casos confirmados na América do Sul?
+=======
+# Como está o crescimento de casos confirmados na América do Suk?
+>>>>>>> b2a7b6663c72754fab7d2d008d9f207794b602f9
 
 ## Números absolutos
 
