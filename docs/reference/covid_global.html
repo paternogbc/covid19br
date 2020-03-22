@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Historical number of covid-19 cases for regions in Brazil. — covid_regions • covid19br</title>
+<title>Historical number of covid-19 cases for the world. — covid_global • covid19br</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Historical number of covid-19 cases for regions in Brazil. — covid_regions" />
-<meta property="og:description" content="Historical number of covid-19 cases for regions in Brazil." />
+<meta property="og:title" content="Historical number of covid-19 cases for the world. — covid_global" />
+<meta property="og:description" content="Historical number of covid-19 cases for the world." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -144,42 +144,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Historical number of covid-19 cases for regions in Brazil.</h1>
+    <h1>Historical number of covid-19 cases for the world.</h1>
     <small class="dont-index">Source: <a href='https://github.com/paternogbc/covid19br/blob/master/R/document_data.R'><code>R/document_data.R</code></a></small>
-    <div class="hidden name"><code>covid_regions.Rd</code></div>
+    <div class="hidden name"><code>covid_global.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Historical number of covid-19 cases for regions in Brazil.</p>
+    <p>Historical number of covid-19 cases for the world.</p>
     </div>
 
-    <pre class="usage"><span class='no'>covid_regions</span></pre>
+    <pre class="usage"><span class='no'>covid_global</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with nine variables:</p><ul>
-<li><p><strong>region</strong> The region of Brazil</p></li>
-<li><p><strong>state</strong> The name of the state</p></li>
-<li><p><strong>state_ID</strong> the code of the state</p></li>
-<li><p><strong>state_uid</strong> the uid code of the state</p></li>
-<li><p><strong>suspected_cases</strong> The official number of suspected cases on a given date</p></li>
-<li><p><strong>confirmed_cases</strong> The official number of confirmed cases on a given date</p></li>
-<li><p><strong>not_confirmed_cases</strong> The official number of discarded cases on a given date</p></li>
-<li><p><strong>deaths</strong> The official number of deaths by covid-19</p></li>
+    <p>A data frame with four variables:</p><ul>
+<li><p><strong>state</strong> The name of the state (country)</p></li>
+<li><p><strong>pop</strong> Total number of confirmed covid-19 cases</p></li>
+<li><p><strong>pop</strong> Total number of confirmed covid-19 deaths</p></li>
 <li><p><strong>date</strong> The date (yyyy-mm-dd)</p></li>
 </ul>
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p>Data downloaded from: <a href='http://plataforma.saude.gov.br/novocoronavirus/'>http://plataforma.saude.gov.br/novocoronavirus/</a> with the
-package <code>coronabr</code>: <a href='https://github.com/liibre/coronabr'>https://github.com/liibre/coronabr</a>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#format">Format</a></li>
-      <li><a href="#source">Source</a></li>
     </ul>
 
   </div>

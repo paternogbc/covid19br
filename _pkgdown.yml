@@ -18,7 +18,7 @@ navbar:
   - text: Referência
     href: reference/index.html
 
-  - text: Análises (pt)
+  - text: Análises
     menu:
     - text: Evolução do número de casos
       href: articles/pt_tendencia_atual.html
@@ -28,9 +28,10 @@ navbar:
       href: articles/pt_distrib_map.html
     - text: Predição do número de casos
       href: articles/pt_predicoes.html
+    - text: COVID-19 na América do Sul
+      href: articles/pt_america_sul.html
 
-
-  - text: Analyses (en)
+  - text: English
     menu:
     - text: Current trends for covid-19 in Brazil
       href: articles/en_current_trends.html

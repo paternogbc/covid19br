@@ -51,11 +51,18 @@ mensagem.
 
 ## Dados brutos
 
-Os dados brutos foram baixados com o pacote
-[`coronabr`](https://github.com/paternogbc/coronabr)\[1\] que oferece
-uma função excelente para baixar os dados não processados diretamente da
-plataforma [IVIS](http://platform.saude.gov.br/novocoronavirus/) do
-Ministério da Saúde.
+  - Os dados brutos foram baixados com o pacote
+    [`coronabr`](https://github.com/liibre/coronabr)\[1\] que oferece
+    uma função excelente para baixar os dados não processados
+    diretamente da plataforma
+    [IVIS](http://platform.saude.gov.br/novocoronavirus/) do Ministério
+    da Saúde.
+
+  - Os dados para o número de casos no mundo foram baixados da
+    plataforma [Our World in
+    Data](https://ourworldindata.org/coronavirus-source-data).
+
+-----
 
 1.  Pacote desenvolvido por [Andrea](https://twitter.com/SanchezTapiaA)
     and [Sara](https://twitter.com/mortarasara)

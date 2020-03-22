@@ -51,7 +51,7 @@
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Análises (pt)
+    Análises
      
     <span class="caret"></span>
   </a>
@@ -68,11 +68,14 @@
     <li>
       <a href="../articles/pt_predicoes.html">Predição do número de casos</a>
     </li>
+    <li>
+      <a href="../articles/pt_america_sul.html">COVID-19 na América do Sul</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Analyses (en)
+    English
      
     <span class="caret"></span>
   </a>
@@ -114,6 +117,9 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(covid19br)</a></code></pre></div>
+<blockquote>
+<p>Os dados estão desatualizados porque a plataforma <a href="http://plataforma.saude.gov.br/novocoronavirus/">IVIS</a> encontra-se em manutenção.</p>
+</blockquote>
 <div id="instalação-do-pacote-covid19br" class="section level2">
 <h2 class="hasAnchor">
 <a href="#instala%C3%A7%C3%A3o-do-pacote-covid19br" class="anchor"></a>Instalação do pacote <code>covid19br</code>
@@ -128,13 +134,16 @@
 <p>O pacote <code>covid19br</code> disponibiliza três bancos de dados com o histórico do número de casos de corona vírus no Brasil (covid-19):</p>
 <ol style="list-style-type: decimal">
 <li>
-<strong>covid_br:</strong> O número de casos para todo o Brasil<br>
+<strong>covid_br:</strong> O número de casos de covid-19 para todo o Brasil.<br>
 </li>
 <li>
-<strong>covid_regions:</strong> O número de casos por cada região do Brasil<br>
+<strong>covid_regions:</strong> O número de casos de covid-19 para cada região do Brasil.<br>
 </li>
 <li>
-<strong>covid_states:</strong> O número de casos para cada estado do Brasil</li>
+<strong>covid_states:</strong> O número de casos de covid-19 para cada estado do Brasil.<br>
+</li>
+<li>
+<strong>covid_global:</strong> O número de casos de covid-19 para todos os países do mundo.</li>
 </ol>
 <p>Para acessar os dados diretamente no seu computador. Após instalar, carregue o pacote <code>covid19br</code> dentro do Programa R. Pronto, você já tem acesso aos três bancos de dados atualizados disponíveis como objetos no seu ambiente de R (environment). Veja como é fácil acessar:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(covid19br)</a>
@@ -173,38 +182,34 @@
 <a class="sourceLine" id="cb3-34" data-line-number="34"><span class="co">#&gt; 4 Sul    NA    NA       NA                      2               0</span></a>
 <a class="sourceLine" id="cb3-35" data-line-number="35"><span class="co">#&gt; 5 Centr… NA    NA       NA                     10               0</span></a>
 <a class="sourceLine" id="cb3-36" data-line-number="36"><span class="co">#&gt; 6 Norde… NA    NA       NA                     15               0</span></a>
-<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="co">#&gt; # … with 3 more variables: not_confirmed_cases &lt;dbl&gt;, deaths &lt;dbl&gt;, date &lt;date&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="co">#&gt; # … with 3 more variables: not_confirmed_cases &lt;dbl&gt;, deaths &lt;dbl&gt;, date &lt;date&gt;</span></a>
+<a class="sourceLine" id="cb3-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb3-39" data-line-number="39"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(covid_global)</a>
+<a class="sourceLine" id="cb3-40" data-line-number="40"><span class="co">#&gt; # A tibble: 6 x 4</span></a>
+<a class="sourceLine" id="cb3-41" data-line-number="41"><span class="co">#&gt;   state       confirmed_cases deaths date      </span></a>
+<a class="sourceLine" id="cb3-42" data-line-number="42"><span class="co">#&gt;   &lt;chr&gt;                 &lt;dbl&gt;  &lt;dbl&gt; &lt;date&gt;    </span></a>
+<a class="sourceLine" id="cb3-43" data-line-number="43"><span class="co">#&gt; 1 Afghanistan               0      0 2019-12-31</span></a>
+<a class="sourceLine" id="cb3-44" data-line-number="44"><span class="co">#&gt; 2 Afghanistan               0      0 2020-01-01</span></a>
+<a class="sourceLine" id="cb3-45" data-line-number="45"><span class="co">#&gt; 3 Afghanistan               0      0 2020-01-02</span></a>
+<a class="sourceLine" id="cb3-46" data-line-number="46"><span class="co">#&gt; 4 Afghanistan               0      0 2020-01-03</span></a>
+<a class="sourceLine" id="cb3-47" data-line-number="47"><span class="co">#&gt; 5 Afghanistan               0      0 2020-01-04</span></a>
+<a class="sourceLine" id="cb3-48" data-line-number="48"><span class="co">#&gt; 6 Afghanistan               0      0 2020-01-05</span></a></code></pre></div>
 </div>
-<div id="faça-seus-gráficos-e-análises" class="section level2">
+<div id="compare-o-brasil-com-outros-países" class="section level2">
 <h2 class="hasAnchor">
-<a href="#fa%C3%A7a-seus-gr%C3%A1ficos-e-an%C3%A1lises" class="anchor"></a>Faça seus gráficos e análises</h2>
+<a href="#compare-o-brasil-com-outros-pa%C3%ADses" class="anchor"></a>Compare o Brasil com outros países</h2>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Carregue os pacotes necessários</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr) </a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2) </a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(covid19br)</a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co"># Quais são os 5 estados com o maior número de casos confirmados?</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">top5 &lt;-</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">  </span>covid_states <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(date <span class="op">==</span><span class="st"> "2020-03-18"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/top_n.html">top_n</a></span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">wt =</span> confirmed_cases) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(state, confirmed_cases) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(confirmed_cases)) </a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">top5</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; # A tibble: 5 x 2</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;   state             confirmed_cases</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;   &lt;fct&gt;                       &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; 1 São Paulo                     240</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; 2 Rio de Janeiro                 45</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; 3 Distrito Federal               26</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt; 4 Rio Grande do Sul              19</span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt; 5 Pernambuco                     16</span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co"># Faça um gráfico</span></a>
-<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(top5, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">y =</span> confirmed_cases, <span class="dt">x =</span> state)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span>(<span class="dt">fill =</span> <span class="st">"tomato"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span>(<span class="dt">base_size =</span> <span class="dv">20</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co"># Filter os países que deseja</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">paises &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Brazil"</span>, <span class="st">"Argentina"</span>, <span class="st">"Peru"</span>, <span class="st">"Colombia"</span>)</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(covid_global <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(state <span class="op">%in%</span><span class="st"> </span>paises <span class="op">&amp;</span><span class="st"> </span>date <span class="op">&gt;</span><span class="st"> "2020-03-01"</span>),</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">       <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">y =</span> confirmed_cases, <span class="dt">x =</span> date, <span class="dt">color =</span> state)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span>(<span class="dt">base_size =</span> <span class="dv">20</span>)</a></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
 </div>
 <div id="veja-a-tendência-de-casos-no-brasil" class="section level2">
@@ -221,19 +226,51 @@
 <a class="sourceLine" id="cb5-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span>(<span class="dt">base_size =</span> <span class="dv">18</span>)</a></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
 </div>
-<div id="veja-a-tendência-de-casos-para-cada-região" class="section level2">
+<div id="compare-os-estados-do-brasil" class="section level2">
 <h2 class="hasAnchor">
-<a href="#veja-a-tend%C3%AAncia-de-casos-para-cada-regi%C3%A3o" class="anchor"></a>Veja a tendência de casos para cada região</h2>
+<a href="#compare-os-estados-do-brasil" class="anchor"></a>Compare os estados do Brasil</h2>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Carregue os pacotes necessários</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr) </a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2) </a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(covid19br)</a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co"># Faça um gráfico</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(covid_regions, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">y =</span> confirmed_cases, <span class="dt">x =</span> date, <span class="dt">color =</span> region)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span>(<span class="dt">base_size =</span> <span class="dv">18</span>) </a></code></pre></div>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co"># Quais são os 5 estados com o maior número de casos confirmados?</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">top5 &lt;-</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">  </span>covid_states <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(date <span class="op">==</span><span class="st"> "2020-03-18"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/top_n.html">top_n</a></span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">wt =</span> confirmed_cases) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(state, confirmed_cases) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(confirmed_cases)) </a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">top5</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; # A tibble: 5 x 2</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt;   state             confirmed_cases</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt;   &lt;fct&gt;                       &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; 1 São Paulo                     240</span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt; 2 Rio de Janeiro                 45</span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt; 3 Distrito Federal               26</span></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt; 4 Rio Grande do Sul              19</span></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt; 5 Pernambuco                     16</span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co"># Faça um gráfico</span></a>
+<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(top5, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">y =</span> confirmed_cases, <span class="dt">x =</span> state)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span>(<span class="dt">fill =</span> <span class="st">"tomato"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span>(<span class="dt">base_size =</span> <span class="dv">20</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span>()</a></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+</div>
+<div id="veja-a-tendência-de-casos-para-cada-região" class="section level2">
+<h2 class="hasAnchor">
+<a href="#veja-a-tend%C3%AAncia-de-casos-para-cada-regi%C3%A3o" class="anchor"></a>Veja a tendência de casos para cada região</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Carregue os pacotes necessários</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr) </a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2) </a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(covid19br)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co"># Faça um gráfico</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(covid_regions, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">y =</span> confirmed_cases, <span class="dt">x =</span> date, <span class="dt">color =</span> region)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span>(<span class="dt">base_size =</span> <span class="dv">18</span>) </a></code></pre></div>
+<p><img src="intro_files/figure-html/unnamed-chunk-6-1.png" width="672"></p>
 </div>
 <div id="help" class="section level1">
 <h1 class="hasAnchor">
@@ -252,8 +289,9 @@
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#instala%C3%A7%C3%A3o-do-pacote-covid19br">Instalação do pacote <code>covid19br</code></a></li>
       <li><a href="#acesse-os-dados">Acesse os dados</a></li>
-      <li><a href="#fa%C3%A7a-seus-gr%C3%A1ficos-e-an%C3%A1lises">Faça seus gráficos e análises</a></li>
+      <li><a href="#compare-o-brasil-com-outros-pa%C3%ADses">Compare o Brasil com outros países</a></li>
       <li><a href="#veja-a-tend%C3%AAncia-de-casos-no-brasil">Veja a tendência de casos no Brasil</a></li>
+      <li><a href="#compare-os-estados-do-brasil">Compare os estados do Brasil</a></li>
       <li><a href="#veja-a-tend%C3%AAncia-de-casos-para-cada-regi%C3%A3o">Veja a tendência de casos para cada região</a></li>
       <li><a href="#help">Help</a></li>
       </ul>

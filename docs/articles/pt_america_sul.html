@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Predição do número de casos de covid-19 no Brasil • covid19br</title>
+<title>Taxa de crescimento entre as regiões • covid19br</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Predição do número de casos de covid-19 no Brasil">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Taxa de crescimento entre as regiões">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -103,52 +103,32 @@
 
       
 
-      </header><script src="pt_predicoes_files/htmlwidgets-1.5.1/htmlwidgets.js"></script><script src="pt_predicoes_files/jquery-1.12.4/jquery.min.js"></script><link href="pt_predicoes_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="pt_predicoes_files/datatables-binding-0.12/datatables.js"></script><link href="pt_predicoes_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="pt_predicoes_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="pt_predicoes_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="pt_predicoes_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet">
-<script src="pt_predicoes_files/crosstalk-1.0.0/js/crosstalk.min.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Predição do número de casos de covid-19 no Brasil</h1>
+      <h1>Taxa de crescimento entre as regiões</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/paternogbc/covid19br/blob/master/vignettes/pt_predicoes.Rmd"><code>vignettes/pt_predicoes.Rmd</code></a></small>
-      <div class="hidden name"><code>pt_predicoes.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/paternogbc/covid19br/blob/master/vignettes/pt_america_sul.Rmd"><code>vignettes/pt_america_sul.Rmd</code></a></small>
+      <div class="hidden name"><code>pt_america_sul.Rmd</code></div>
 
     </div>
 
     
     
-<blockquote>
-<p><strong>NOTAS:</strong><br>
-* As análises abaixo representam apenas o número de casos <strong>confirmados pelo Ministério da Saúde</strong>, portanto, não se pode concluir uma relação direta destes números com o número real de pessoas infectadas por covid-19.<br>
-* Os resultados apresentados abaixo foram atualizados na data: <strong>2020-03-18</strong></p>
-</blockquote>
-<div id="síntese-dos-dados-oficiais" class="section level1">
+<div id="como-está-o-crescimento-de-casos-confirmados-na-américa-do-sul" class="section level1">
 <h1 class="hasAnchor">
-<a href="#s%C3%ADntese-dos-dados-oficiais" class="anchor"></a>Síntese dos dados oficiais</h1>
-<ul>
-<li>Número de casos suspeitos: <strong>1.127810^{4}</strong><br>
-</li>
-<li>Número de casos confirmados: <strong>428</strong><br>
-</li>
-<li>Número de casos descartados: <strong>1841</strong><br>
-</li>
-<li>Número de mortes por corona vírus: <strong>4</strong>
-</li>
-</ul>
+<a href="#como-est%C3%A1-o-crescimento-de-casos-confirmados-na-am%C3%A9rica-do-sul" class="anchor"></a>Como está o crescimento de casos confirmados na América do Sul?</h1>
+<div id="números-absolutos" class="section level2">
+<h2 class="hasAnchor">
+<a href="#n%C3%BAmeros-absolutos" class="anchor"></a>Números absolutos</h2>
+<p><img src="pt_america_sul_files/figure-html/unnamed-chunk-2-1.png" width="960"></p>
 </div>
-<div id="predição-do-número-de-casos-de-covid-19-no-brasil" class="section level1">
-<h1 class="hasAnchor">
-<a href="#predi%C3%A7%C3%A3o-do-n%C3%BAmero-de-casos-de-covid-19-no-brasil" class="anchor"></a>Predição do número de casos de covid-19 no Brasil</h1>
-<p><img src="pt_predicoes_files/figure-html/unnamed-chunk-3-1.png" width="960"></p>
+<div id="em-escala-logarítmica-log10" class="section level2">
+<h2 class="hasAnchor">
+<a href="#em-escala-logar%C3%ADtmica-log10" class="anchor"></a>Em escala logarítmica (log10)</h2>
+<p><img src="pt_america_sul_files/figure-html/unnamed-chunk-3-1.png" width="960"></p>
 </div>
-<div id="valores-brutos" class="section level1">
-<h1 class="hasAnchor">
-<a href="#valores-brutos" class="anchor"></a>Valores brutos</h1>
-<div id="htmlwidget-ede3e95faf3aeab3315e" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ede3e95faf3aeab3315e">{"x":{"filter":"none","data":[["2020-03-10","2020-03-11","2020-03-12","2020-03-13","2020-03-14","2020-03-15","2020-03-16","2020-03-17","2020-03-18","2020-03-19","2020-03-20","2020-03-21","2020-03-22","2020-03-23","2020-03-24","2020-03-25","2020-03-26"],[39,52,68,90,118,156,205,270,356,468,617,812,1070,1409,1856,2445,3220],[32,42,54,69,89,114,147,188,242,310,397,509,653,836,1072,1373,1759],[48,64,87,117,157,212,287,387,524,708,958,1296,1754,2374,3214,4352,5894]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Data<\/th>\n      <th>Esperado<\/th>\n      <th>Mínimo<\/th>\n      <th>Máximo<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":30,"columnDefs":[{"className":"dt-right","targets":[1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,25,30,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
   </div>
 
@@ -158,9 +138,12 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#s%C3%ADntese-dos-dados-oficiais">Síntese dos dados oficiais</a></li>
-      <li><a href="#predi%C3%A7%C3%A3o-do-n%C3%BAmero-de-casos-de-covid-19-no-brasil">Predição do número de casos de covid-19 no Brasil</a></li>
-      <li><a href="#valores-brutos">Valores brutos</a></li>
+<li>
+<a href="#como-est%C3%A1-o-crescimento-de-casos-confirmados-na-am%C3%A9rica-do-sul">Como está o crescimento de casos confirmados na América do Sul?</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#n%C3%BAmeros-absolutos">Números absolutos</a></li>
+      <li><a href="#em-escala-logar%C3%ADtmica-log10">Em escala logarítmica (log10)</a></li>
+      </ul>
+</li>
       </ul>
 </div>
       </div>
