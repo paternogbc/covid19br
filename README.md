@@ -1,11 +1,4 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-<!-- badges: start -->
-
-[![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-<!-- badges: end -->
+# Esse projeto não está ativo!
 
 # `covid19br`
 
